@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Collection | Search Luxury Villas — Exclusive Cape Town</title>
+<meta name="description" content="Search the full Exclusive Cape Town collection by location, property type, bedrooms, guests, and price — luxury villas, apartments, and estates across the Western Cape.">
+<!-- TODO: update to the live domain once hosted -->
+<link rel="canonical" href="https://www.exclusivecapetown.co.za/collection.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Collection | Search Luxury Villas — Exclusive Cape Town">
+<meta property="og:description" content="Search the full collection by location, property type, bedrooms, guests, and price.">
+<meta property="og:image" content="assets/images/site/hero.webp">
+<meta property="og:url" content="https://www.exclusivecapetown.co.za/collection.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Collection — Exclusive Cape Town">
+<meta name="twitter:description" content="Search the full collection by location, property type, bedrooms, guests, and price.">
+<meta name="twitter:image" content="assets/images/site/hero.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<noscript><style>.hero-reveal, .reveal-up, .fade-in-only{opacity:1 !important; transform:none !important;}</style></noscript>
+</head>
+<body>
+
+  <!-- LOADER -->
+  <div class="loader" id="loader">
+    <div class="loader-mark">Exclusive<span>·</span>Cape Town</div>
+    <div class="loader-line"><span></span></div>
+  </div>
+
+  <!-- SCROLL PROGRESS -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-mark hero-reveal" style="--d:1">Exclusive<span>·</span>Cape Town</div>
+    <div class="nav-links hero-reveal" style="--d:2">
+      <a href="collection.html">The Collection</a>
+      <a href="index.html#map">Locations</a>
+      <a href="index.html#experience">POR Exclusives</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <div class="nav-phone hero-reveal" style="--d:3">069 986 3597</div>
+    <button type="button" class="nav-burger hero-reveal" id="burger" style="--d:3" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><span></span><span></span><span></span></button>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="collection.html">The Collection</a>
+    <a href="index.html#map">Locations</a>
+    <a href="index.html#experience">POR Exclusives</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+
+  <!-- COLLECTION / SEARCH (standalone page — no hero above it) -->
+  <section class="collection page-head" id="collectionTop">
+    <div class="section-inner">
+      <div class="collection-head reveal-up">
+        <a href="index.html" style="display:inline-block; margin-bottom:20px; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--cream-dim);">← Back to Home</a>
+        <h2 class="display underline-grow">The Collection</h2>
+        <p>Every residence in the portfolio — search by location, type, size, and price.</p>
+      </div>
+
+      <!-- search panel -->
+      <div class="search-toolbar">
+        <button class="filter-toggle" id="filterToggle" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+          Filters
+        </button>
+        <div class="sort-wrap">
+          <label class="cap" for="sortSelect">Sort</label>
+          <select id="sortSelect" class="sort-select">
+            <option value="recommended">Recommended</option>
+            <option value="priceHigh">Highest Price</option>
+            <option value="priceLow">Lowest Price</option>
+            <option value="popular">Most Popular</option>
+            <option value="newest">Newest Listings</option>
+            <option value="rated">Best Rated</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="filter-panel" id="filterPanel">
+        <div class="filter-row">
+          <div class="f-field">
+            <label class="cap">Location</label>
+            <select id="fLocation"><option value="">All Locations</option></select>
+          </div>
+          <div class="f-field">
+            <label class="cap">Property Type</label>
+            <select id="fType"><option value="">Any Type</option></select>
+          </div>
+          <div class="f-field">
+            <label class="cap">Bedrooms</label>
+            <select id="fBedrooms">
+              <option value="0">Any</option>
+              <option value="1">1+</option>
+              <option value="2">2+</option>
+              <option value="3">3+</option>
+              <option value="4">4+</option>
+              <option value="5">5+</option>
+              <option value="6">6+</option>
+            </select>
+          </div>
+          <div class="f-field">
+            <label class="cap">Bathrooms</label>
+            <select id="fBathrooms">
+              <option value="0">Any</option>
+              <option value="1">1+</option>
+              <option value="2">2+</option>
+              <option value="3">3+</option>
+              <option value="4">4+</option>
+            </select>
+          </div>
+          <div class="f-field">
+            <label class="cap">Guests</label>
+            <select id="fGuests">
+              <option value="0">Any</option>
+              <option value="2">2+</option>
+              <option value="4">4+</option>
+              <option value="6">6+</option>
+              <option value="8">8+</option>
+              <option value="10">10+</option>
+              <option value="12">12+</option>
+            </select>
+          </div>
+          <div class="f-field">
+            <label class="cap">Parking</label>
+            <select id="fParking">
+              <option value="0">Any</option>
+              <option value="1">1+</option>
+              <option value="2">2+</option>
+              <option value="4">4+</option>
+            </select>
+          </div>
+          <div class="f-field">
+            <label class="cap">Min Price / Night</label>
+            <input type="number" id="fMinPrice" placeholder="R 0">
+          </div>
+          <div class="f-field">
+            <label class="cap">Max Price / Night</label>
+            <input type="number" id="fMaxPrice" placeholder="No limit">
+          </div>
+          <div class="f-field">
+            <label class="cap">Check-in</label>
+            <input type="date" id="fCheckin">
+          </div>
+          <div class="f-field">
+            <label class="cap">Check-out</label>
+            <input type="date" id="fCheckout">
+          </div>
+        </div>
+        <div class="date-error" id="dateError" style="display:none;" role="alert"></div>
+
+        <div class="amenity-block">
+          <label class="cap">Features &amp; Amenities</label>
+          <div class="amenity-chips" id="amenityChips"></div>
+        </div>
+
+        <div class="filter-actions">
+          <button class="apply-btn" id="applyFilters" type="button">Search Villas</button>
+          <button class="clear-btn" id="clearFilters" type="button">Clear All</button>
+        </div>
+      </div>
+
+      <div class="results-bar">
+        <div class="results-count" id="resultsCount">Showing all villas</div>
+      </div>
+
+      <div class="grid-collection" id="collectionGrid"></div>
+      <div class="no-results" id="noResults" style="display:none;">No residences match those filters just yet — try widening your search.</div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER / CONTACT -->
+  <footer id="contact">
+    <div class="section-inner">
+      <div class="footer-head reveal-up">
+        <h2 class="display">Let's find<br>your villa.</h2>
+        <div class="footer-cta">
+          <a href="https://wa.me/27699863597" target="_blank" rel="noopener">Message on WhatsApp →</a>
+        </div>
+      </div>
+      <div class="footer-grid">
+        <div class="col">
+          <b class="cap">Address</b>
+          <div>15 Laurentia Way</div>
+          <div>Cape Town, South Africa</div>
+        </div>
+        <div class="col">
+          <b class="cap">Contact</b>
+          <a href="tel:+27699863597">069 986 3597</a>
+          <a href="mailto:xclusivecapetown@gmail.com">xclusivecapetown@gmail.com</a>
+        </div>
+        <div class="col">
+          <b class="cap">Follow</b>
+          <a href="https://instagram.com/exclusive_cape_town" target="_blank" rel="noopener">@exclusive_cape_town</a>
+        </div>
+        <div class="col">
+          <b class="cap">Navigate</b>
+          <a href="collection.html">The Collection</a>
+          <a href="index.html#map">Locations</a>
+          <a href="index.html#experience">POR Exclusives</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>Exclusive Cape Town — Estd. 2015</div>
+        <div>The Home of Luxury Villas</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Villa details"></div>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close photo viewer">&times;</button>
+    <button type="button" class="lightbox-arrow prev" id="lightboxPrev" aria-label="Previous photo">‹</button>
+    <button type="button" class="lightbox-arrow next" id="lightboxNext" aria-label="Next photo">›</button>
+    <img id="lightboxImg" src="" alt="">
+  </div>
+
+  <!-- MOBILE ACTION BAR -->
+  <div class="mobile-action-bar" id="mobileActionBar">
+    <button class="mab-btn primary" id="mabSearch" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      Search
+    </button>
+    <a class="mab-btn" href="https://wa.me/27699863597" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.4 8.4 0 0 1-8.9 8.4 8.5 8.5 0 0 1-4-1L3 20l1.1-5a8.4 8.4 0 0 1-1-4A8.4 8.4 0 0 1 11.6 3a8.5 8.5 0 0 1 8.5 8Z"/></svg>
+      WhatsApp
+    </a>
+    <a class="mab-btn" href="tel:+27699863597">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 5a2 2 0 0 1 2 2M15 1a6 6 0 0 1 6 6m-2 8.5v2a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 3.1 4.2 2 2 0 0 1 5.1 2h2a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg>
+      Call
+    </a>
+  </div>
+
+<script src="assets/data/listings.js"></script>
+<script src="assets/js/shared.js"></script>
+<script>
+/* =====================================================================
+   SEARCH / FILTER / SORT — full collection experience for this page
+   (AMENITY_DEFS and other shared helpers come from shared.js)
+   ===================================================================== */
+const grid = document.getElementById('collectionGrid');
+const resultsCount = document.getElementById('resultsCount');
+const noResults = document.getElementById('noResults');
+const filterPanel = document.getElementById('filterPanel');
+const filterToggle = document.getElementById('filterToggle');
+
+/* keeps body.filters-open in sync with the panel automatically, regardless
+   of which of the several places in this file opens/closes it — used as a
+   fallback selector for browsers that don't support :has() */
+new MutationObserver(() => {
+  document.body.classList.toggle('filters-open', filterPanel.classList.contains('open'));
+}).observe(filterPanel, { attributes: true, attributeFilter: ['class'] });
+const amenityChipsWrap = document.getElementById('amenityChips');
+const sortSelect = document.getElementById('sortSelect');
+
+let activeAmenities = new Set();
+let currentFilters = { location:'', type:'', bedrooms:0, bathrooms:0, guests:0, parking:0, minPrice:null, maxPrice:null, checkin:'', checkout:'' };
+
+/* populate location + property type dropdowns from the data itself */
+(function populateDropdowns(){
+  const locSelect = document.getElementById('fLocation');
+  const typeSelect = document.getElementById('fType');
+  const locations = [...new Set(LISTINGS.map(l => l.location))].sort();
+  const types = [...new Set(LISTINGS.map(l => l.propertyType))].sort();
+  locations.forEach(loc => {
+    const opt = document.createElement('option'); opt.value = loc; opt.textContent = loc;
+    locSelect.appendChild(opt);
+  });
+  types.forEach(t => {
+    const opt = document.createElement('option'); opt.value = t; opt.textContent = t;
+    typeSelect.appendChild(opt);
+  });
+})();
+
+/* build amenity chip toggles */
+AMENITY_DEFS.forEach(a => {
+  const chip = document.createElement('button');
+  chip.type = 'button';
+  chip.className = 'amenity-chip';
+  chip.textContent = a.label;
+  chip.dataset.key = a.key;
+  chip.addEventListener('click', () => {
+    chip.classList.toggle('active');
+    if(chip.classList.contains('active')) activeAmenities.add(a.key);
+    else activeAmenities.delete(a.key);
+  });
+  amenityChipsWrap.appendChild(chip);
+});
+
+filterToggle.addEventListener('click', () => {
+  filterPanel.classList.toggle('open');
+  filterToggle.classList.toggle('active');
+});
+
+function datesOverlapBooked(checkin, checkout, bookedDates){
+  if(!checkin || !checkout || !bookedDates || !bookedDates.length) return false;
+  const start = new Date(checkin), end = new Date(checkout);
+  for(const iso of bookedDates){
+    const d = new Date(iso);
+    if(d >= start && d < end) return true;
+  }
+  return false;
+}
+
+function matchesFilters(listing){
+  const f = currentFilters;
+  if(f.location && listing.location !== f.location) return false;
+  if(f.type && listing.propertyType !== f.type) return false;
+  if(listing.bedrooms < f.bedrooms) return false;
+  if(listing.bathrooms < f.bathrooms) return false;
+  if(listing.guests < f.guests) return false;
+  if(listing.parkingSpaces < f.parking) return false;
+  const priceFilterActive = f.minPrice != null || f.maxPrice != null;
+  if(priceFilterActive){
+    if(listing.priceOnRequest) return false; // no comparable price to filter by
+    if(f.minPrice != null && listing.pricePerNight < f.minPrice) return false;
+    if(f.maxPrice != null && listing.pricePerNight > f.maxPrice) return false;
+  }
+  for(const key of activeAmenities){ if(!listing.amenities[key]) return false; }
+  if(datesOverlapBooked(f.checkin, f.checkout, listing.bookedDates)) return false;
+  return true;
+}
+
+function sortResults(arr){
+  const sorted = [...arr];
+  switch(sortSelect.value){
+    case 'priceHigh': sorted.sort((a,b) => {
+      if(a.priceOnRequest && !b.priceOnRequest) return 1;
+      if(!a.priceOnRequest && b.priceOnRequest) return -1;
+      if(a.priceOnRequest && b.priceOnRequest) return 0;
+      return b.pricePerNight - a.pricePerNight;
+    }); break;
+    case 'priceLow': sorted.sort((a,b) => {
+      if(a.priceOnRequest && !b.priceOnRequest) return 1;
+      if(!a.priceOnRequest && b.priceOnRequest) return -1;
+      if(a.priceOnRequest && b.priceOnRequest) return 0;
+      return a.pricePerNight - b.pricePerNight;
+    }); break;
+    case 'popular': sorted.sort((a,b) => b.popularity - a.popularity); break;
+    case 'newest': sorted.sort((a,b) => new Date(b.dateAdded) - new Date(a.dateAdded)); break;
+    case 'rated': sorted.sort((a,b) => b.rating - a.rating); break;
+    default: break; /* recommended = curated original order */
+  }
+  return sorted;
+}
+
+function renderCard(listing, position){
+  const hasImage = listing.images && listing.images.length > 0;
+  const idx = (position !== undefined ? position : LISTINGS.indexOf(listing)) + 1;
+  const card = document.createElement('div');
+  card.className = 'card reveal-up';
+  card.innerHTML = `
+    ${hasImage ? `<img src="${listing.images[0]}" alt="${listing.name} — exterior view" loading="lazy" decoding="async">` : `<div class="ph"></div>`}
+    <div class="card-num">N° ${String(idx).padStart(2,'0')}</div>
+    <div class="card-price">${listing.priceOnRequest ? 'POR' : formatZAR(listing.pricePerNight) + ' / night'}</div>
+    ${!hasImage ? `<div class="card-empty-tag">+ Add photography</div>` : ``}
+    <div class="card-body">
+      <div class="name display">${listing.name}</div>
+      <div class="loc">${listing.location}</div>
+      <div class="card-meta">
+        <span>${ICONS.bed} ${listing.bedrooms}</span>
+        <span>${ICONS.bath} ${listing.bathrooms}</span>
+        <span>${ICONS.guests} ${listing.guests}</span>
+      </div>
+    </div>
+  `;
+  card.addEventListener('click', () => openListing(listing.id));
+  card.addEventListener('keydown', (e) => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openListing(listing.id); } });
+  card.setAttribute('role', 'button');
+  card.setAttribute('tabindex', '0');
+  card.setAttribute('aria-label', `View ${listing.name} in ${listing.location}`);
+  attachCursorTilt(card);
+  return card;
+}
+
+function renderResults(){
+  const results = sortResults(LISTINGS.filter(matchesFilters));
+  grid.innerHTML = '';
+  results.forEach((listing, i) => grid.appendChild(renderCard(listing, i)));
+
+  const total = LISTINGS.length;
+  if(results.length === total){
+    resultsCount.textContent = `Showing all ${total} villas`;
+  } else {
+    resultsCount.textContent = `Showing ${results.length} of ${total} villa${total !== 1 ? 's' : ''}`;
+  }
+  noResults.style.display = results.length === 0 ? 'block' : 'none';
+  grid.style.display = results.length === 0 ? 'none' : 'grid';
+  observeReveals();
+}
+
+function applyFiltersFromForm(){
+  const checkinVal = document.getElementById('fCheckin').value;
+  const checkoutVal = document.getElementById('fCheckout').value;
+  const dateError = document.getElementById('dateError');
+
+  if(checkinVal && checkoutVal && checkoutVal <= checkinVal){
+    dateError.textContent = 'Check-out date must be after check-in date.';
+    dateError.style.display = 'block';
+    return false;
+  }
+  dateError.style.display = 'none';
+
+  currentFilters = {
+    location: document.getElementById('fLocation').value,
+    type: document.getElementById('fType').value,
+    bedrooms: Number(document.getElementById('fBedrooms').value) || 0,
+    bathrooms: Number(document.getElementById('fBathrooms').value) || 0,
+    guests: Number(document.getElementById('fGuests').value) || 0,
+    parking: Number(document.getElementById('fParking').value) || 0,
+    minPrice: document.getElementById('fMinPrice').value ? Number(document.getElementById('fMinPrice').value) : null,
+    maxPrice: document.getElementById('fMaxPrice').value ? Number(document.getElementById('fMaxPrice').value) : null,
+    checkin: checkinVal,
+    checkout: checkoutVal
+  };
+  return true;
+}
+
+/* URL query-string state — makes filtered views shareable/bookmarkable.
+   Read once on load to pre-fill the form; written back (via replaceState,
+   no page reload/history spam) whenever Apply or Clear runs. */
+function updateURLFromFilters(){
+  const params = new URLSearchParams();
+  const f = currentFilters;
+  if(f.location) params.set('location', f.location);
+  if(f.type) params.set('type', f.type);
+  if(f.bedrooms) params.set('bedrooms', f.bedrooms);
+  if(f.bathrooms) params.set('bathrooms', f.bathrooms);
+  if(f.guests) params.set('guests', f.guests);
+  if(f.parking) params.set('parking', f.parking);
+  if(f.minPrice != null) params.set('minPrice', f.minPrice);
+  if(f.maxPrice != null) params.set('maxPrice', f.maxPrice);
+  if(f.checkin) params.set('checkin', f.checkin);
+  if(f.checkout) params.set('checkout', f.checkout);
+  if(activeAmenities.size) params.set('amenities', [...activeAmenities].join(','));
+  const qs = params.toString();
+  const newUrl = window.location.pathname + (qs ? '?' + qs : '');
+  history.replaceState(null, '', newUrl);
+}
+
+function readFiltersFromURL(){
+  const params = new URLSearchParams(window.location.search);
+  if([...params.keys()].length === 0) return false;
+
+  const locSelect = document.getElementById('fLocation');
+  const typeSelect = document.getElementById('fType');
+  if(params.has('location') && [...locSelect.options].some(o => o.value === params.get('location'))) locSelect.value = params.get('location');
+  if(params.has('type') && [...typeSelect.options].some(o => o.value === params.get('type'))) typeSelect.value = params.get('type');
+  if(params.has('bedrooms')) document.getElementById('fBedrooms').value = params.get('bedrooms');
+  if(params.has('bathrooms')) document.getElementById('fBathrooms').value = params.get('bathrooms');
+  if(params.has('guests')) document.getElementById('fGuests').value = params.get('guests');
+  if(params.has('parking')) document.getElementById('fParking').value = params.get('parking');
+  if(params.has('minPrice')) document.getElementById('fMinPrice').value = params.get('minPrice');
+  if(params.has('maxPrice')) document.getElementById('fMaxPrice').value = params.get('maxPrice');
+  if(params.has('checkin')) document.getElementById('fCheckin').value = params.get('checkin');
+  if(params.has('checkout')) document.getElementById('fCheckout').value = params.get('checkout');
+  if(params.has('amenities')){
+    const keys = params.get('amenities').split(',').filter(Boolean);
+    keys.forEach(key => {
+      const chip = amenityChipsWrap.querySelector(`.amenity-chip[data-key="${key}"]`);
+      if(chip){ chip.classList.add('active'); activeAmenities.add(key); }
+    });
+  }
+  /* any filter present in the URL means the visitor arrived at a shared
+     search — open the panel so they can see what's applied */
+  filterPanel.classList.add('open');
+  filterToggle.classList.add('active');
+  return applyFiltersFromForm();
+}
+
+document.getElementById('applyFilters').addEventListener('click', () => {
+  if(applyFiltersFromForm()){
+    updateURLFromFilters();
+    renderResults();
+  }
+});
+
+/* dynamic date minimums — check-in can't be in the past, check-out can't
+   precede (or equal) check-in; both update live rather than being hardcoded */
+(function(){
+  const checkinEl = document.getElementById('fCheckin');
+  const checkoutEl = document.getElementById('fCheckout');
+  const today = new Date().toISOString().slice(0,10);
+  checkinEl.min = today;
+  checkoutEl.min = today;
+  checkinEl.addEventListener('change', () => {
+    if(checkinEl.value){
+      const nextDay = new Date(checkinEl.value);
+      nextDay.setDate(nextDay.getDate() + 1);
+      checkoutEl.min = nextDay.toISOString().slice(0,10);
+      if(checkoutEl.value && checkoutEl.value <= checkinEl.value) checkoutEl.value = '';
+    }
+  });
+})();
+
+document.getElementById('clearFilters').addEventListener('click', () => {
+  document.querySelectorAll('.f-field select').forEach(s => s.selectedIndex = 0);
+  document.querySelectorAll('.f-field input').forEach(i => i.value = '');
+  document.getElementById('dateError').style.display = 'none';
+  amenityChipsWrap.querySelectorAll('.amenity-chip.active').forEach(c => c.classList.remove('active'));
+  activeAmenities.clear();
+  currentFilters = { location:'', type:'', bedrooms:0, bathrooms:0, guests:0, parking:0, minPrice:null, maxPrice:null, checkin:'', checkout:'' };
+  updateURLFromFilters();
+  renderResults();
+});
+
+sortSelect.addEventListener('change', renderResults);
+
+/* apply any filters carried in via URL (e.g. a shared/bookmarked search, or
+   the homepage's search entry point); fall back to showing everything */
+if(!readFiltersFromURL()) renderResults();
+
+/* =====================================================================
+   MOBILE ACTION BAR — already on the collection page, so just open the filters
+   ===================================================================== */
+const mabSearch = document.getElementById('mabSearch');
+if(mabSearch){
+  mabSearch.addEventListener('click', () => {
+    document.getElementById('collectionTop').scrollIntoView({behavior:'smooth', block:'start'});
+    filterPanel.classList.add('open');
+    filterToggle.classList.add('active');
+  });
+}
+</script>
+</body>
+</html>

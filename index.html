@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exclusive Cape Town | Luxury Villa Rentals in Cape Town &amp; the Western Cape</title>
+<meta name="description" content="A curated collection of luxury villas, penthouses, and private estates across Cape Town and the Western Cape — from Camps Bay and Clifton to the Garden Route. Enquire directly for pricing and availability.">
+<!-- TODO: update to the live domain once hosted -->
+<link rel="canonical" href="https://www.exclusivecapetown.co.za/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Exclusive Cape Town | Luxury Villa Rentals in Cape Town & the Western Cape">
+<meta property="og:description" content="A curated collection of luxury villas, penthouses, and private estates across Cape Town and the Western Cape.">
+<meta property="og:image" content="assets/images/site/hero.webp">
+<meta property="og:url" content="https://www.exclusivecapetown.co.za/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Exclusive Cape Town | Luxury Villa Rentals">
+<meta name="twitter:description" content="A curated collection of luxury villas, penthouses, and private estates across Cape Town and the Western Cape.">
+<meta name="twitter:image" content="assets/images/site/hero.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/vendor/leaflet/leaflet.css">
+<link rel="stylesheet" href="assets/vendor/leaflet.markercluster/MarkerCluster.css">
+<link rel="stylesheet" href="assets/vendor/leaflet.markercluster/MarkerCluster.Default.css">
+<link rel="stylesheet" href="assets/css/site.css">
+<noscript><style>.hero-reveal, .reveal-up, .fade-in-only{opacity:1 !important; transform:none !important;}</style></noscript>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Exclusive Cape Town",
+  "url": "https://www.exclusivecapetown.co.za/",
+  "logo": "assets/images/site/hero.webp",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "15 Laurentia Way",
+    "addressLocality": "Cape Town",
+    "addressCountry": "ZA"
+  },
+  "telephone": "+27699863597",
+  "email": "xclusivecapetown@gmail.com",
+  "sameAs": ["https://instagram.com/exclusive_cape_town"]
+}
+</script>
+</head>
+<body>
+
+  <!-- LOADER -->
+  <div class="loader" id="loader">
+    <div class="loader-mark">Exclusive<span>·</span>Cape Town</div>
+    <div class="loader-line"><span></span></div>
+  </div>
+
+  <!-- SCROLL PROGRESS -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-mark hero-reveal" style="--d:1">Exclusive<span>·</span>Cape Town</div>
+    <div class="nav-links hero-reveal" style="--d:2">
+      <a href="collection.html">The Collection</a>
+      <a href="#map">Locations</a>
+      <a href="#experience">POR Exclusives</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-phone hero-reveal" style="--d:3">069 986 3597</div>
+    <button type="button" class="nav-burger hero-reveal" id="burger" style="--d:3" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><span></span><span></span><span></span></button>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="collection.html">The Collection</a>
+    <a href="#map">Locations</a>
+    <a href="#experience">POR Exclusives</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero" id="hero">
+    <div class="hero-media" id="heroMedia">
+    <img src="assets/images/site/hero.webp" alt="Exclusive Cape Town — luxury villa at dusk overlooking the Atlantic coastline" fetchpriority="high" decoding="async">
+    </div>
+    <a href="collection.html" class="hero-cta hero-reveal" style="--d:6">
+      Browse Collection
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 6l6 6-6 6"/></svg>
+    </a>
+  </header>
+
+  <!-- QUICK SEARCH -->
+  <div class="quick-search-wrap">
+    <form class="quick-search reveal-up" id="quickSearch">
+      <div class="qs-field">
+        <label class="cap" for="qsLocation">Location</label>
+        <select id="qsLocation"><option value="">Any Location</option></select>
+      </div>
+      <div class="qs-field">
+        <label class="cap" for="qsBedrooms">Bedrooms</label>
+        <select id="qsBedrooms">
+          <option value="0">Any</option>
+          <option value="1">1+</option>
+          <option value="2">2+</option>
+          <option value="3">3+</option>
+          <option value="4">4+</option>
+          <option value="5">5+</option>
+          <option value="6">6+</option>
+        </select>
+      </div>
+      <div class="qs-field">
+        <label class="cap" for="qsGuests">Guests</label>
+        <select id="qsGuests">
+          <option value="0">Any</option>
+          <option value="2">2+</option>
+          <option value="4">4+</option>
+          <option value="6">6+</option>
+          <option value="8">8+</option>
+          <option value="10">10+</option>
+          <option value="12">12+</option>
+        </select>
+      </div>
+      <button type="submit" class="qs-submit">
+        Search
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
+    </form>
+  </div>
+
+  <!-- MANIFESTO -->
+  <section class="manifesto">
+    <div class="section-inner grid">
+      <div class="manifesto-label fade-in-only">The Manifesto</div>
+      <div>
+        <p class="lede reveal-up">Cape Town is a city written in light — Atlantic dusk, sandstone cliff, and glass held quiet against the sea. We curate the villas that belong to that language.</p>
+        <p class="sub reveal-up">Exclusive Cape Town represents a small, considered collection of private residences across the peninsula — each one inspected, styled and managed to a single standard, so that every stay reads like the city at its best. No listings we wouldn't stay in ourselves.</p>
+        <div class="contact-strip reveal-up">
+          <div class="item"><b>Enquiries</b><a href="https://wa.me/27699863597" target="_blank" rel="noopener">069 986 3597</a></div>
+          <div class="item"><b>Correspondence</b><a href="mailto:xclusivecapetown@gmail.com">xclusivecapetown@gmail.com</a></div>
+          <div class="item"><b>Atelier</b><span>15 Laurentia Way, Cape Town</span></div>
+          <div class="item"><b>Journal</b><a href="https://instagram.com/exclusive_cape_town" target="_blank" rel="noopener">@exclusive_cape_town</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="gold-divider"><i></i></div>
+
+  <!-- FEATURED -->
+  <section class="featured" id="featured">
+    <div class="section-inner">
+      <div class="section-label reveal-up">
+        <span class="num">N° 02</span><span class="txt">The Featured Three</span><span class="rule"></span>
+      </div>
+      <div class="collection-head reveal-up">
+        <h2 class="display underline-grow">The Most Exclusive</h2>
+        <p>Our three highest-value residences — chosen for their setting, their craft, and what it feels like to wake up inside them.</p>
+      </div>
+      <div class="featured-grid" id="featuredGrid"></div>
+    </div>
+  </section>
+
+  <!-- COLLECTION / SEARCH -->
+  <section class="collection" id="collection">
+    <div class="section-inner">
+      <div class="section-label reveal-up">
+        <span class="num">N° 03</span><span class="txt">The Collection</span><span class="rule"></span>
+      </div>
+      <div class="collection-head reveal-up">
+        <h2 class="display underline-grow">Villas</h2>
+        <p>A glimpse of the portfolio — browse the full collection to search every residence, its pricing, and its availability.</p>
+      </div>
+
+      <div class="grid-collection" id="collectionPreviewGrid"></div>
+
+      <div class="browse-collection-wrap reveal-up">
+        <a href="collection.html" class="browse-collection-btn">Browse Collection →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- POR EXCLUSIVES -->
+  <section class="experience" id="experience">
+    <div class="section-inner">
+      <div class="section-label reveal-up">
+        <span class="num">N° 04</span><span class="txt">POR Exclusives</span><span class="rule"></span>
+      </div>
+      <div class="collection-head reveal-up">
+        <h2 class="display underline-grow">Price On Request</h2>
+        <p>A small set of residences held outside the standard rate card — enquire directly for pricing and availability.</p>
+      </div>
+      <div class="featured-grid" id="porGrid"></div>
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <section class="map-section" id="map">
+    <div class="section-inner">
+      <div class="section-label reveal-up">
+        <span class="num">N° 05</span><span class="txt">Locations</span><span class="rule"></span>
+      </div>
+      <div class="collection-head reveal-up">
+        <h2 class="display underline-grow">Exceptional homes, across extraordinary places.</h2>
+        <p>Explore the locations of the collection across the Western Cape — from the Atlantic Seaboard to the Garden Route and beyond.</p>
+      </div>
+      <div class="leaflet-frame reveal-up">
+        <div id="villaMap"></div>
+      </div>
+      <div class="map-disclaimer">Locations shown are approximate and intended to indicate the general area of each property.</div>
+    </div>
+  </section>
+
+  <!-- FOOTER / CONTACT -->
+  <footer id="contact">
+    <div class="section-inner">
+      <div class="footer-head reveal-up">
+        <h2 class="display">Let's find<br>your villa.</h2>
+        <div class="footer-cta">
+          <a href="https://wa.me/27699863597" target="_blank" rel="noopener">Message on WhatsApp →</a>
+        </div>
+      </div>
+      <div class="footer-grid">
+        <div class="col">
+          <b class="cap">Address</b>
+          <div>15 Laurentia Way</div>
+          <div>Cape Town, South Africa</div>
+        </div>
+        <div class="col">
+          <b class="cap">Contact</b>
+          <a href="tel:+27699863597">069 986 3597</a>
+          <a href="mailto:xclusivecapetown@gmail.com">xclusivecapetown@gmail.com</a>
+        </div>
+        <div class="col">
+          <b class="cap">Follow</b>
+          <a href="https://instagram.com/exclusive_cape_town" target="_blank" rel="noopener">@exclusive_cape_town</a>
+        </div>
+        <div class="col">
+          <b class="cap">Navigate</b>
+          <a href="collection.html">The Collection</a>
+          <a href="#map">Locations</a>
+          <a href="#experience">POR Exclusives</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>Exclusive Cape Town — Estd. 2015</div>
+        <div>The Home of Luxury Villas</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Villa details"></div>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close photo viewer">&times;</button>
+    <button type="button" class="lightbox-arrow prev" id="lightboxPrev" aria-label="Previous photo">‹</button>
+    <button type="button" class="lightbox-arrow next" id="lightboxNext" aria-label="Next photo">›</button>
+    <img id="lightboxImg" src="" alt="">
+  </div>
+
+  <!-- MOBILE ACTION BAR -->
+  <div class="mobile-action-bar" id="mobileActionBar">
+    <button class="mab-btn primary" id="mabSearch" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      Search
+    </button>
+    <a class="mab-btn" href="https://wa.me/27699863597" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.4 8.4 0 0 1-8.9 8.4 8.5 8.5 0 0 1-4-1L3 20l1.1-5a8.4 8.4 0 0 1-1-4A8.4 8.4 0 0 1 11.6 3a8.5 8.5 0 0 1 8.5 8Z"/></svg>
+      WhatsApp
+    </a>
+    <a class="mab-btn" href="tel:+27699863597">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 5a2 2 0 0 1 2 2M15 1a6 6 0 0 1 6 6m-2 8.5v2a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 3.1 4.2 2 2 0 0 1 5.1 2h2a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z"/></svg>
+      Call
+    </a>
+  </div>
+
+<script src="assets/vendor/leaflet/leaflet.js"></script>
+<script src="assets/vendor/leaflet.markercluster/leaflet.markercluster.js"></script>
+<script src="assets/data/listings.js"></script>
+<script src="assets/js/shared.js"></script>
+<script>
+/* =====================================================================
+   HOMEPAGE ONLY — featured / POR exclusives / collection preview / map
+   ===================================================================== */
+const featuredGrid = document.getElementById('featuredGrid');
+const porGrid = document.getElementById('porGrid');
+const POR_EXCLUSIVE_IDS = ["villa-45", "villa-66", "villa-115"]; // Stonehurst Estate, R I V A, The Constantia Hideaway Estate
+
+function renderFeatured(){
+  /* Featured Three is an editorially curated selection (the `featured` flag),
+     ordered by the dedicated `featuredOrder` field — never by price. Falls
+     back to dateAdded only for the rare case a featured listing has no
+     explicit order set, so the section never silently reorders by price. */
+  const featured = LISTINGS.filter(l => l.featured).sort((a,b) => {
+    const orderA = typeof a.featuredOrder === 'number' ? a.featuredOrder : Infinity;
+    const orderB = typeof b.featuredOrder === 'number' ? b.featuredOrder : Infinity;
+    if(orderA !== orderB) return orderA - orderB;
+    return new Date(a.dateAdded) - new Date(b.dateAdded);
+  });
+  featuredGrid.innerHTML = '';
+  featured.forEach((listing, i) => {
+    const hasImage = listing.images && listing.images.length > 0;
+    const idx = i + 1; // position within this section, not the global listing index
+    const isSignature = i === 0;
+    const card = document.createElement('div');
+    card.className = 'featured-card reveal-up' + (isSignature ? ' signature' : ' secondary');
+    card.innerHTML = `
+      ${hasImage ? `<img src="${listing.images[0]}" alt="${listing.name} — exterior view" loading="${i === 0 ? 'eager' : 'lazy'}" decoding="async">` : `<div class="ph"></div>`}
+      <div class="featured-badge">N° ${String(idx).padStart(2,'0')} — ${isSignature ? 'Signature Residence' : 'Featured'}</div>
+      <div class="featured-price">${listing.priceOnRequest ? 'POR' : formatZAR(listing.pricePerNight) + ' / night'}</div>
+      <div class="featured-body">
+        <div class="name display">${listing.name}</div>
+        <div class="loc">${listing.location}${listing.region ? ", " + listing.region : ""}</div>
+        <div class="featured-meta">
+          <span>${ICONS.bed} ${listing.bedrooms} Bed</span>
+          <span>${ICONS.bath} ${listing.bathrooms} Bath</span>
+          <span>${ICONS.guests} ${listing.guests} Guests</span>
+        </div>
+        <div class="featured-desc">
+          <p>${listing.shortDescription}</p>
+          <div class="featured-amenities">${trueAmenityLabels(listing, 4).map(a=>`<span>${a}</span>`).join('')}</div>
+        </div>
+        <div class="featured-view">View Villa →</div>
+      </div>
+    `;
+    card.addEventListener('click', () => openListing(listing.id));
+    card.addEventListener('keydown', (e) => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openListing(listing.id); } });
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('aria-label', `View ${listing.name} in ${listing.location}`);
+    attachCursorTilt(card);
+    featuredGrid.appendChild(card);
+  });
+  observeReveals();
+}
+
+function renderPor(){
+  /* dev-only integrity checks for the curated POR list — never shown to visitors */
+  const seenPorIds = new Set();
+  POR_EXCLUSIVE_IDS.forEach(id => {
+    if(seenPorIds.has(id)) console.warn(`[POR Exclusives] duplicate id in POR_EXCLUSIVE_IDS: ${id}`);
+    seenPorIds.add(id);
+    const match = LISTINGS.find(l => l.id === id);
+    if(!match){ console.warn(`[POR Exclusives] id not found in LISTINGS: ${id}`); return; }
+    if(!match.priceOnRequest) console.warn(`[POR Exclusives] ${id} (${match.name}) is listed as a POR exclusive but priceOnRequest is not true`);
+    if(!match.images || match.images.length === 0) console.warn(`[POR Exclusives] ${id} (${match.name}) has no images`);
+  });
+
+  const porListings = POR_EXCLUSIVE_IDS
+    .map(id => LISTINGS.find(l => l.id === id))
+    .filter(Boolean);
+  porGrid.innerHTML = '';
+  porListings.forEach((listing, i) => {
+    const hasImage = listing.images && listing.images.length > 0;
+    const card = document.createElement('div');
+    card.className = 'featured-card reveal-up' + (i === 0 ? ' signature' : ' secondary');
+    card.innerHTML = `
+      ${hasImage ? `<img src="${listing.images[0]}" alt="${listing.name} — exterior view" loading="lazy" decoding="async">` : `<div class="ph"></div>`}
+      <div class="featured-badge">Price On Request</div>
+      <div class="featured-price">POR</div>
+      <div class="featured-body">
+        <div class="name display">${listing.name}</div>
+        <div class="loc">${listing.location}${listing.region ? ", " + listing.region : ""}</div>
+        <div class="featured-meta">
+          <span>${ICONS.bed} ${listing.bedrooms} Bed</span>
+          <span>${ICONS.bath} ${listing.bathrooms} Bath</span>
+          <span>${ICONS.guests} ${listing.guests} Guests</span>
+        </div>
+        <div class="featured-desc">
+          <p>${listing.shortDescription}</p>
+          <div class="featured-amenities">${trueAmenityLabels(listing, 4).map(a=>`<span>${a}</span>`).join('')}</div>
+        </div>
+        <div class="featured-view">View Villa →</div>
+      </div>
+    `;
+    card.addEventListener('click', () => openListing(listing.id));
+    card.addEventListener('keydown', (e) => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openListing(listing.id); } });
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('aria-label', `View ${listing.name} in ${listing.location} — price on request`);
+    attachCursorTilt(card);
+    porGrid.appendChild(card);
+  });
+  observeReveals();
+}
+
+function renderCollectionPreview(){
+  const previewGrid = document.getElementById('collectionPreviewGrid');
+  if(!previewGrid) return;
+  /* skip anything already shown in the Featured Three above — no point
+     showing the same villa twice on the same homepage */
+  const preview = [...LISTINGS]
+    .filter(l => !l.featured)
+    .sort((a,b) => new Date(b.dateAdded) - new Date(a.dateAdded))
+    .slice(0, 3);
+  previewGrid.innerHTML = '';
+  preview.forEach(listing => {
+    const hasImage = listing.images && listing.images.length > 0;
+    const idx = LISTINGS.indexOf(listing) + 1;
+    const card = document.createElement('div');
+    card.className = 'card reveal-up';
+    card.innerHTML = `
+      ${hasImage ? `<img src="${listing.images[0]}" alt="${listing.name} — exterior view" loading="lazy" decoding="async">` : `<div class="ph"></div>`}
+      <div class="card-num">N° ${String(idx).padStart(2,'0')}</div>
+      <div class="card-price">${priceLabel(listing)}${listing.priceOnRequest ? '' : ' / night'}</div>
+      <div class="card-body">
+        <div class="name display">${listing.name}</div>
+        <div class="loc">${listing.location}</div>
+        <div class="card-meta">
+          <span>${ICONS.bed} ${listing.bedrooms}</span>
+          <span>${ICONS.bath} ${listing.bathrooms}</span>
+          <span>${ICONS.guests} ${listing.guests}</span>
+        </div>
+      </div>
+    `;
+    card.addEventListener('click', () => openListing(listing.id));
+    card.addEventListener('keydown', (e) => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openListing(listing.id); } });
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('aria-label', `View ${listing.name} in ${listing.location}`);
+    attachCursorTilt(card);
+    previewGrid.appendChild(card);
+  });
+  observeReveals();
+}
+
+renderFeatured();
+renderPor();
+renderCollectionPreview();
+
+/* =====================================================================
+   QUICK SEARCH — compact hero-adjacent entry point into the full
+   collection. Deliberately thin: it only builds a URL and hands off to
+   collection.html, which already knows how to read location/bedrooms/
+   guests from query params — no filtering logic is duplicated here.
+   ===================================================================== */
+(function(){
+  const qsForm = document.getElementById('quickSearch');
+  if(!qsForm) return;
+
+  const qsLocation = document.getElementById('qsLocation');
+  [...new Set(LISTINGS.map(l => l.location))].sort().forEach(loc => {
+    const opt = document.createElement('option');
+    opt.value = loc; opt.textContent = loc;
+    qsLocation.appendChild(opt);
+  });
+
+  qsForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const params = new URLSearchParams();
+    if(qsLocation.value) params.set('location', qsLocation.value);
+    const bedrooms = document.getElementById('qsBedrooms').value;
+    if(bedrooms !== '0') params.set('bedrooms', bedrooms);
+    const guests = document.getElementById('qsGuests').value;
+    if(guests !== '0') params.set('guests', guests);
+    const qs = params.toString();
+    window.location.href = 'collection.html' + (qs ? '?' + qs : '');
+  });
+})();
+
+/* =====================================================================
+   INTERACTIVE MAP — Leaflet + OpenStreetMap (self-hosted, no API key)
+   Deliberately NOT connected to the search/filter system — purely a
+   geographic overview with click-to-preview, click-through to the
+   existing listing modal.
+   ===================================================================== */
+const SUBURB_COORDS = {
+  'V&A Waterfront': [-33.9036, 18.4197],
+  'Mouille Point': [-33.9014, 18.4106],
+  'Green Point': [-33.9083, 18.4055],
+  'Sea Point': [-33.9180, 18.3839],
+  'Bantry Bay': [-33.9186, 18.3819],
+  'Higgovale': [-33.9420, 18.4090],
+  'Fresnaye': [-33.9280, 18.3870],
+  'Clifton': [-33.9394, 18.3775],
+  'Camps Bay': [-33.9500, 18.3776],
+  'Bakoven': [-33.9611, 18.3701],
+  'Llandudno': [-34.0044, 18.3444],
+  'Hout Bay': [-34.0400, 18.3540],
+  'Misty Cliffs': [-34.1847, 18.3629],
+  'Constantia': [-34.0333, 18.4333],
+  'Bishopscourt': [-33.9833, 18.4333],
+  'Cape Town City Centre': [-33.9249, 18.4241],
+  'Noordhoek': [-34.1058, 18.3778],
+  'Bloubergstrand': [-33.7972, 18.4620],
+  'Yzerfontein': [-33.3330, 18.1620],
+  'St Helena Bay': [-32.7583, 18.0278],
+  'Shelly Point': [-32.7250, 17.9450],
+  'Britannia Bay': [-32.7170, 17.9540],
+  'Plettenberg Bay': [-34.0527, 23.3716],
+  'Keurbooms': [-34.0167, 23.4167],
+  'Knysna': [-34.0356, 23.0468],
+  'Kanonkop': [-34.0380, 23.0380],
+  'Wilderness': [-33.9887, 22.5833],
+  'George Private Nature Reserve': [-33.9500, 22.4300],
+  'Rooi Els': [-34.3014, 18.8164],
+  'Montagu': [-33.7860, 20.1210],
+  'Oranjezicht': [-33.9439, 18.4150]
+};
+/* Suburb-level coordinates, not exact addresses — precise enough for a
+   portfolio overview, not intended for pinpoint navigation. */
+
+/* small deterministic offset so multiple listings in the same suburb
+   spread out on the map instead of stacking exactly on top of each other */
+function jitterFor(id){
+  let hash = 0;
+  for(let i = 0; i < id.length; i++){ hash = (hash * 31 + id.charCodeAt(i)) >>> 0; }
+  const angle = (hash % 360) * Math.PI / 180;
+  const dist = 0.003 + (hash % 100) / 100 * 0.006;
+  return [Math.cos(angle) * dist, Math.sin(angle) * dist];
+}
+
+const villaMapEl = document.getElementById('villaMap');
+if(villaMapEl && typeof L !== 'undefined'){
+  const villaMap = L.map('villaMap', {
+    scrollWheelZoom: false,
+    zoomControl: true,
+    minZoom: 6,
+    maxZoom: 15
+  });
+
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+    subdomains: 'abcd',
+    maxZoom: 19
+  }).addTo(villaMap);
+
+  const villaClusters = L.markerClusterGroup({
+    showCoverageOnHover: false,
+    spiderfyOnMaxZoom: true,
+    maxClusterRadius: 50,
+    iconCreateFunction: function(cluster){
+      const count = cluster.getChildCount();
+      return L.divIcon({
+        html: `<div class="cluster-pin"><span>${count}</span><small>VILLA${count > 1 ? 'S' : ''}</small></div>`,
+        className: 'villa-cluster-icon',
+        iconSize: [58, 58]
+      });
+    }
+  });
+
+  const villaMapBounds = [];
+
+  LISTINGS.forEach(listing => {
+    const base = SUBURB_COORDS[listing.location];
+    if(!base) return; // no known coordinates for this location yet
+    const [dLat, dLng] = jitterFor(listing.id);
+    const lat = base[0] + dLat;
+    const lng = base[1] + dLng;
+    villaMapBounds.push([lat, lng]);
+
+    const marker = L.marker([lat, lng], {
+      icon: L.divIcon({
+        html: `<div class="price-pin">${priceLabel(listing)}</div>`,
+        className: 'villa-price-icon',
+        iconSize: [0, 0]
+      })
+    });
+
+    const hasImage = listing.images && listing.images.length > 0;
+    const popupHtml = `
+      <div class="map-preview" data-listing-id="${listing.id}">
+        ${hasImage ? `<img src="${listing.images[0]}" alt="${listing.name} — exterior view" loading="lazy" decoding="async">` : ``}
+        <div class="map-preview-body">
+          <div class="name display">${listing.name}</div>
+          <div class="loc">${listing.location}${listing.region ? ", " + listing.region : ""}</div>
+          <div class="map-preview-meta">
+            <span>${listing.bedrooms} Bed</span>
+            <span>${listing.bathrooms} Bath</span>
+            <span>Sleeps ${listing.guests}</span>
+          </div>
+          <div class="map-preview-price">${priceLabel(listing)}${listing.priceOnRequest ? '' : ' / night'}</div>
+          <button class="map-preview-cta" type="button" aria-label="View ${listing.name} in ${listing.location}">View Villa →</button>
+        </div>
+      </div>
+    `;
+    marker.bindPopup(popupHtml, { minWidth: 220, className: 'villa-popup' });
+    villaClusters.addLayer(marker);
+  });
+
+  villaMap.addLayer(villaClusters);
+
+  if(villaMapBounds.length){
+    villaMap.fitBounds(villaMapBounds, { padding: [40, 40], maxZoom: 12 });
+  } else {
+    villaMap.setView([-33.95, 18.45], 11);
+  }
+
+  /* click-through: whole preview card or the CTA button opens the
+     existing listing modal — event delegation, no per-popup listeners */
+  villaMapEl.addEventListener('click', (e) => {
+    const card = e.target.closest('.map-preview');
+    if(card){
+      villaMap.closePopup();
+      openListing(card.dataset.listingId);
+    }
+  });
+}
+
+/* =====================================================================
+   MOBILE ACTION BAR — "Search" now sends people to the full collection page
+   ===================================================================== */
+const mabSearch = document.getElementById('mabSearch');
+if(mabSearch){
+  mabSearch.addEventListener('click', () => {
+    window.location.href = 'collection.html';
+  });
+}
+</script>
+</body>
+</html>
