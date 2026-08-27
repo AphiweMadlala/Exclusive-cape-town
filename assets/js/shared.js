@@ -431,16 +431,29 @@ onScrollUpdate();
 
 const burger = document.getElementById('burger');
 const mobileNav = document.getElementById('mobileNav');
-burger.addEventListener('click', () => {
-  const isOpen = mobileNav.classList.toggle('open');
-  burger.setAttribute('aria-expanded', String(isOpen));
-  burger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
-});
-mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+
+function openMobileNav(){
+  mobileNav.classList.add('open');
+  burger.setAttribute('aria-expanded', 'true');
+  burger.setAttribute('aria-label', 'Close menu');
+  document.body.style.overflow = 'hidden';
+}
+function closeMobileNav(){
   mobileNav.classList.remove('open');
   burger.setAttribute('aria-expanded', 'false');
   burger.setAttribute('aria-label', 'Open menu');
-}));
+  document.body.style.overflow = '';
+  burger.focus();
+}
+
+burger.addEventListener('click', () => {
+  if(mobileNav.classList.contains('open')) closeMobileNav();
+  else openMobileNav();
+});
+mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobileNav));
+document.addEventListener('keydown', (e) => {
+  if(e.key === 'Escape' && mobileNav.classList.contains('open')) closeMobileNav();
+});
 
 /* =====================================================================
    LOADER

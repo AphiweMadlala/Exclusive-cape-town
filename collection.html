@@ -35,14 +35,14 @@
 
   <!-- NAV -->
   <nav class="nav" id="nav">
-    <div class="nav-mark hero-reveal" style="--d:1">Exclusive<span>·</span>Cape Town</div>
+    <a href="index.html" class="nav-mark hero-reveal" style="--d:1" aria-label="Exclusive Cape Town — home">Exclusive<span>·</span>Cape Town</a>
     <div class="nav-links hero-reveal" style="--d:2">
       <a href="collection.html">The Collection</a>
       <a href="index.html#map">Locations</a>
       <a href="index.html#experience">POR Exclusives</a>
       <a href="index.html#contact">Contact</a>
     </div>
-    <div class="nav-phone hero-reveal" style="--d:3">069 986 3597</div>
+    <a href="tel:+27699863597" class="nav-phone hero-reveal" style="--d:3">069 986 3597</a>
     <button type="button" class="nav-burger hero-reveal" id="burger" style="--d:3" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><span></span><span></span><span></span></button>
   </nav>
 
@@ -151,6 +151,7 @@
             <input type="date" id="fCheckout">
           </div>
         </div>
+        <div class="date-error" id="priceError" style="display:none;" role="alert"></div>
         <div class="date-error" id="dateError" style="display:none;" role="alert"></div>
 
         <div class="amenity-block">
@@ -403,6 +404,18 @@ function applyFiltersFromForm(){
   const checkinVal = document.getElementById('fCheckin').value;
   const checkoutVal = document.getElementById('fCheckout').value;
   const dateError = document.getElementById('dateError');
+  const priceError = document.getElementById('priceError');
+  const minPriceVal = document.getElementById('fMinPrice').value;
+  const maxPriceVal = document.getElementById('fMaxPrice').value;
+
+  /* price validation — empty fields and equal values are both valid;
+     only min > max (both present) blocks the search */
+  if(minPriceVal !== '' && maxPriceVal !== '' && Number(minPriceVal) > Number(maxPriceVal)){
+    priceError.textContent = 'Maximum price must be greater than or equal to minimum price.';
+    priceError.style.display = 'block';
+    return false;
+  }
+  priceError.style.display = 'none';
 
   if(checkinVal && checkoutVal && checkoutVal <= checkinVal){
     dateError.textContent = 'Check-out date must be after check-in date.';
@@ -418,13 +431,22 @@ function applyFiltersFromForm(){
     bathrooms: Number(document.getElementById('fBathrooms').value) || 0,
     guests: Number(document.getElementById('fGuests').value) || 0,
     parking: Number(document.getElementById('fParking').value) || 0,
-    minPrice: document.getElementById('fMinPrice').value ? Number(document.getElementById('fMinPrice').value) : null,
-    maxPrice: document.getElementById('fMaxPrice').value ? Number(document.getElementById('fMaxPrice').value) : null,
+    minPrice: minPriceVal ? Number(minPriceVal) : null,
+    maxPrice: maxPriceVal ? Number(maxPriceVal) : null,
     checkin: checkinVal,
     checkout: checkoutVal
   };
   return true;
 }
+
+/* clears the price error the moment either field is edited, rather than
+   only on the next Apply click — same idea as native form validation */
+document.getElementById('fMinPrice').addEventListener('input', () => {
+  document.getElementById('priceError').style.display = 'none';
+});
+document.getElementById('fMaxPrice').addEventListener('input', () => {
+  document.getElementById('priceError').style.display = 'none';
+});
 
 /* URL query-string state — makes filtered views shareable/bookmarkable.
    Read once on load to pre-fill the form; written back (via replaceState,
@@ -456,12 +478,26 @@ function readFiltersFromURL(){
   const typeSelect = document.getElementById('fType');
   if(params.has('location') && [...locSelect.options].some(o => o.value === params.get('location'))) locSelect.value = params.get('location');
   if(params.has('type') && [...typeSelect.options].some(o => o.value === params.get('type'))) typeSelect.value = params.get('type');
-  if(params.has('bedrooms')) document.getElementById('fBedrooms').value = params.get('bedrooms');
-  if(params.has('bathrooms')) document.getElementById('fBathrooms').value = params.get('bathrooms');
-  if(params.has('guests')) document.getElementById('fGuests').value = params.get('guests');
-  if(params.has('parking')) document.getElementById('fParking').value = params.get('parking');
-  if(params.has('minPrice')) document.getElementById('fMinPrice').value = params.get('minPrice');
-  if(params.has('maxPrice')) document.getElementById('fMaxPrice').value = params.get('maxPrice');
+
+  /* bedrooms/bathrooms/guests/parking are <select> elements with a fixed
+     set of valid values — only apply the URL param if it actually matches
+     one of the select's own options, same guard as location/type above */
+  ['fBedrooms', 'fBathrooms', 'fGuests', 'fParking'].forEach(id => {
+    const key = {fBedrooms:'bedrooms', fBathrooms:'bathrooms', fGuests:'guests', fParking:'parking'}[id];
+    if(!params.has(key)) return;
+    const select = document.getElementById(id);
+    if([...select.options].some(o => o.value === params.get(key))) select.value = params.get(key);
+  });
+
+  /* price values must be finite, non-negative numbers — anything else
+     (negative, NaN, absurd) is safely ignored rather than applied */
+  ['fMinPrice', 'fMaxPrice'].forEach(id => {
+    const key = id === 'fMinPrice' ? 'minPrice' : 'maxPrice';
+    if(!params.has(key)) return;
+    const n = Number(params.get(key));
+    if(Number.isFinite(n) && n >= 0) document.getElementById(id).value = n;
+  });
+
   if(params.has('checkin')) document.getElementById('fCheckin').value = params.get('checkin');
   if(params.has('checkout')) document.getElementById('fCheckout').value = params.get('checkout');
   if(params.has('amenities')){

@@ -86,6 +86,30 @@
   .nav-burger span{width:22px; height:1px; background:var(--cream);}
 
   /* ---------- HERO ---------- */
+  /* =====================================================================
+     HERO — SINGLE SOURCE OF TRUTH FOR ALL BREAKPOINTS
+     =====================================================================
+     Structure: .hero (container) > .hero-media (animation layer, #heroMedia)
+     > img (the photo). .hero-cta and the gradient overlay are separate
+     children of .hero.
+
+     - Base positioning/crop (object-fit, object-position): set once below
+       on `.hero img`, inherited at every breakpoint — never overridden.
+     - Ken Burns zoom animation: set separately on `.hero-media img` (a few
+       hundred lines down, grouped with the site's other scroll/motion
+       effects) since it's a distinct concern from cropping. Disabled on
+       mobile only (≤640px) and under prefers-reduced-motion.
+     - Container height: desktop rule directly below (100vh). The ONLY
+       responsive override lives in the 960px breakpoint further down —
+       intentionally a single rule covering 0-960px (not duplicated at
+       640px) so there is exactly one place that controls mobile/tablet
+       hero height. See the comment there for why it differs from desktop.
+     - object-position is NOT overridden for mobile: the container is wider
+       than the photo's own ratio on desktop (crops top/bottom, where the
+       38% vertical bias matters) but narrower on mobile/tablet (crops
+       left/right only — the vertical component is inert there, so one
+       value safely serves both cases without needing a responsive split).
+     ===================================================================== */
   .hero{
     position:relative;
     height:100vh; min-height:640px;
@@ -894,7 +918,7 @@
     /* hero — see the shared height fix in the 960px breakpoint above,
        which already covers this narrower range too */
     .hero-media img{animation:none; transform:none;}
-    .quick-search-wrap{margin-top:16px; padding:0 16px;}
+    .quick-search-wrap{padding:0 16px;}
     .quick-search{flex-direction:column; align-items:stretch; gap:16px; padding:22px;}
     .qs-submit{width:100%; padding:15px;}
     .hero-cta{

@@ -30,7 +30,6 @@
   "@type": "Organization",
   "name": "Exclusive Cape Town",
   "url": "https://www.exclusivecapetown.co.za/",
-  "logo": "assets/images/site/hero.webp",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "15 Laurentia Way",
@@ -56,14 +55,14 @@
 
   <!-- NAV -->
   <nav class="nav" id="nav">
-    <div class="nav-mark hero-reveal" style="--d:1">Exclusive<span>·</span>Cape Town</div>
+    <a href="index.html" class="nav-mark hero-reveal" style="--d:1" aria-label="Exclusive Cape Town — home">Exclusive<span>·</span>Cape Town</a>
     <div class="nav-links hero-reveal" style="--d:2">
       <a href="collection.html">The Collection</a>
       <a href="#map">Locations</a>
       <a href="#experience">POR Exclusives</a>
       <a href="#contact">Contact</a>
     </div>
-    <div class="nav-phone hero-reveal" style="--d:3">069 986 3597</div>
+    <a href="tel:+27699863597" class="nav-phone hero-reveal" style="--d:3">069 986 3597</a>
     <button type="button" class="nav-burger hero-reveal" id="burger" style="--d:3" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav"><span></span><span></span><span></span></button>
   </nav>
 
@@ -273,8 +272,6 @@
     </a>
   </div>
 
-<script src="assets/vendor/leaflet/leaflet.js"></script>
-<script src="assets/vendor/leaflet.markercluster/leaflet.markercluster.js"></script>
 <script src="assets/data/listings.js"></script>
 <script src="assets/js/shared.js"></script>
 <script>
@@ -510,7 +507,8 @@ function jitterFor(id){
 }
 
 const villaMapEl = document.getElementById('villaMap');
-if(villaMapEl && typeof L !== 'undefined'){
+
+function initVillaMap(){
   const villaMap = L.map('villaMap', {
     scrollWheelZoom: false,
     zoomControl: true,
@@ -594,6 +592,33 @@ if(villaMapEl && typeof L !== 'undefined'){
       openListing(card.dataset.listingId);
     }
   });
+}
+
+/* lazy-load: Leaflet + the marker-cluster plugin (~184KB of JS) were
+   previously loaded synchronously in <head> on every page load, even
+   though the map sits at the very bottom of the homepage and its own
+   init was already deferred below. Now the library itself is only
+   fetched once the map is about to scroll into view. Same idea as the
+   site's existing reveal-on-scroll IntersectionObserver. */
+function loadScript(src){
+  return new Promise((resolve, reject) => {
+    const s = document.createElement('script');
+    s.src = src;
+    s.onload = resolve;
+    s.onerror = reject;
+    document.body.appendChild(s);
+  });
+}
+if(villaMapEl){
+  const mapObserver = new IntersectionObserver((entries, obs) => {
+    if(entries[0].isIntersecting){
+      obs.disconnect();
+      loadScript('assets/vendor/leaflet/leaflet.js')
+        .then(() => loadScript('assets/vendor/leaflet.markercluster/leaflet.markercluster.js'))
+        .then(() => initVillaMap());
+    }
+  }, {rootMargin:'400px'});
+  mapObserver.observe(villaMapEl);
 }
 
 /* =====================================================================
