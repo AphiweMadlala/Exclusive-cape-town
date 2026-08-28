@@ -922,13 +922,27 @@
   /* ================= MOBILE ================= */
   @media (max-width:640px){
     section, footer{padding-left:22px; padding-right:22px;}
-    .nav{padding:20px 22px;}
-    .nav.solid{padding:14px 22px;}
+    .nav{padding:max(20px, env(safe-area-inset-top)) 22px;}
+    .nav.solid{padding:max(14px, env(safe-area-inset-top)) 22px;}
     .nav-mark{font-size:13px;}
-
+    /* the hero photo has "EXCLUSIVE CAPE TOWN" baked into it already, so
+       the separate nav-mark logo duplicates/clashes with that artwork
+       while the nav is still transparent over the hero. Hidden via
+       opacity (not display:none) so the hamburger's position never
+       shifts, and reappears once .nav.solid is applied on scroll — the
+       existing mechanism in shared.js, no new listener. On pages with
+       no hero (e.g. collection.html) .solid is already always true, so
+       this rule never applies there and the logo is unaffected. */
+    .nav-mark{transition:opacity .4s ease;}
+    .nav:not(.solid) .nav-mark{opacity:0; pointer-events:none;}
     /* hero — see the shared height fix in the 960px breakpoint above,
        which already covers this narrower range too */
     .hero-media img{animation:none; transform:none;}
+    /* the hamburger sits over the top of the hero while the nav is
+       transparent (pre-scroll) — the existing gradient was very faint
+       there (.15), giving low contrast against the baked-in artwork
+       behind it. Same gradient shape, just a stronger top stop on mobile. */
+    .hero::after{background:linear-gradient(180deg, rgba(6,10,15,.4) 0%, rgba(6,10,15,.05) 30%, rgba(6,10,15,.05) 60%, rgba(6,10,15,.55) 100%);}
     .quick-search-wrap{padding:0 16px;}
     .quick-search{flex-direction:column; align-items:stretch; gap:16px; padding:22px;}
     .qs-submit{width:100%; padding:15px;}
@@ -968,6 +982,7 @@
     .sort-select{width:100%;}
     .filter-panel.open{padding:20px; max-height:2200px;}
     .filter-row{grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px;}
+    .por-field{grid-column:span 2;}
     .amenity-chips{gap:7px;}
     .amenity-chip{font-size:10px; padding:7px 12px;}
     .filter-actions{flex-direction:column;}
