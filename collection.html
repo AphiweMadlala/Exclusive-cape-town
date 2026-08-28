@@ -89,7 +89,7 @@
           </div>
           <div class="f-field">
             <label class="cap" for="fType">Property Type</label>
-            <select id="fType"><option value="">Any Type</option></select>
+            <select id="fType"><option value="">All Property Types</option></select>
           </div>
           <div class="f-field">
             <label class="cap" for="fBedrooms">Bedrooms</label>
@@ -141,6 +141,10 @@
           <div class="f-field">
             <label class="cap" for="fMaxPrice">Max Price / Night</label>
             <input type="number" id="fMaxPrice" placeholder="No limit">
+          </div>
+          <div class="f-field">
+            <label class="cap" id="fPORLabel">Price on Request</label>
+            <button type="button" class="amenity-chip" id="fPOR" aria-pressed="false" aria-labelledby="fPORLabel">POR</button>
           </div>
           <div class="f-field">
             <label class="cap" for="fCheckin">Check-in</label>
@@ -268,20 +272,27 @@ const amenityChipsWrap = document.getElementById('amenityChips');
 const sortSelect = document.getElementById('sortSelect');
 
 let activeAmenities = new Set();
-let currentFilters = { location:'', type:'', bedrooms:0, bathrooms:0, guests:0, parking:0, minPrice:null, maxPrice:null, checkin:'', checkout:'' };
+let currentFilters = { location:'', type:'', por:false, bedrooms:0, bathrooms:0, guests:0, parking:0, minPrice:null, maxPrice:null, checkin:'', checkout:'' };
 
-/* populate location + property type dropdowns from the data itself */
+/* populate location dropdown from the data itself; Property Type uses a
+   fixed set of categories rather than whatever raw values happen to
+   exist in the data, per the new typeCategory field */
 (function populateDropdowns(){
   const locSelect = document.getElementById('fLocation');
   const typeSelect = document.getElementById('fType');
   const locations = [...new Set(LISTINGS.map(l => l.location))].sort();
-  const types = [...new Set(LISTINGS.map(l => l.propertyType))].sort();
   locations.forEach(loc => {
     const opt = document.createElement('option'); opt.value = loc; opt.textContent = loc;
     locSelect.appendChild(opt);
   });
-  types.forEach(t => {
-    const opt = document.createElement('option'); opt.value = t; opt.textContent = t;
+  const PROPERTY_TYPES = [
+    {value:'villa', label:'Villas'},
+    {value:'apartment', label:'Apartments'},
+    {value:'penthouse', label:'Penthouses'},
+    {value:'hotel', label:'Hotels'}
+  ];
+  PROPERTY_TYPES.forEach(t => {
+    const opt = document.createElement('option'); opt.value = t.value; opt.textContent = t.label;
     typeSelect.appendChild(opt);
   });
 })();
@@ -309,6 +320,25 @@ AMENITY_DEFS.forEach(a => {
   amenityChipsWrap.appendChild(chip);
 });
 
+/* POR toggle — a numeric price range and "Price on Request only" are
+   mutually exclusive (POR listings have no comparable numeric price), so
+   enabling POR clears and disables the price inputs rather than allowing
+   a contradictory combination that would silently return nothing */
+const porToggle = document.getElementById('fPOR');
+const minPriceInput = document.getElementById('fMinPrice');
+const maxPriceInput = document.getElementById('fMaxPrice');
+porToggle.addEventListener('click', () => {
+  const active = !porToggle.classList.contains('active');
+  setChipActive(porToggle, active);
+  minPriceInput.disabled = active;
+  maxPriceInput.disabled = active;
+  if(active){
+    minPriceInput.value = '';
+    maxPriceInput.value = '';
+    document.getElementById('priceError').style.display = 'none';
+  }
+});
+
 filterToggle.addEventListener('click', () => {
   filterPanel.classList.toggle('open');
   filterToggle.classList.toggle('active');
@@ -327,14 +357,15 @@ function datesOverlapBooked(checkin, checkout, bookedDates){
 function matchesFilters(listing){
   const f = currentFilters;
   if(f.location && listing.location !== f.location) return false;
-  if(f.type && listing.propertyType !== f.type) return false;
+  if(f.type && listing.typeCategory !== f.type) return false;
+  if(f.por && !isPOR(listing)) return false;
   if(listing.bedrooms < f.bedrooms) return false;
   if(listing.bathrooms < f.bathrooms) return false;
   if(listing.guests < f.guests) return false;
   if(listing.parkingSpaces < f.parking) return false;
   const priceFilterActive = f.minPrice != null || f.maxPrice != null;
   if(priceFilterActive){
-    if(listing.priceOnRequest) return false; // no comparable price to filter by
+    if(isPOR(listing)) return false; // no comparable price to filter by
     if(f.minPrice != null && listing.pricePerNight < f.minPrice) return false;
     if(f.maxPrice != null && listing.pricePerNight > f.maxPrice) return false;
   }
@@ -437,6 +468,7 @@ function applyFiltersFromForm(){
   currentFilters = {
     location: document.getElementById('fLocation').value,
     type: document.getElementById('fType').value,
+    por: document.getElementById('fPOR').classList.contains('active'),
     bedrooms: Number(document.getElementById('fBedrooms').value) || 0,
     bathrooms: Number(document.getElementById('fBathrooms').value) || 0,
     guests: Number(document.getElementById('fGuests').value) || 0,
@@ -466,6 +498,7 @@ function updateURLFromFilters(){
   const f = currentFilters;
   if(f.location) params.set('location', f.location);
   if(f.type) params.set('type', f.type);
+  if(f.por) params.set('por', '1');
   if(f.bedrooms) params.set('bedrooms', f.bedrooms);
   if(f.bathrooms) params.set('bathrooms', f.bathrooms);
   if(f.guests) params.set('guests', f.guests);
@@ -489,6 +522,10 @@ function readFiltersFromURL(){
   if(params.has('location') && [...locSelect.options].some(o => o.value === params.get('location'))) locSelect.value = params.get('location');
   if(params.has('type') && [...typeSelect.options].some(o => o.value === params.get('type'))) typeSelect.value = params.get('type');
 
+  /* strictly validate: only the exact value '1' activates POR, anything
+     else is safely ignored (falls back to POR off) */
+  const porRequested = params.get('por') === '1';
+
   /* bedrooms/bathrooms/guests/parking are <select> elements with a fixed
      set of valid values — only apply the URL param if it actually matches
      one of the select's own options, same guard as location/type above */
@@ -507,6 +544,17 @@ function readFiltersFromURL(){
     const n = Number(params.get(key));
     if(Number.isFinite(n) && n >= 0) document.getElementById(id).value = n;
   });
+
+  /* POR and a numeric price range are mutually exclusive — same rule the
+     toggle's own click handler enforces, applied here too so a URL like
+     ?por=1&minPrice=5000 can't produce the contradictory state */
+  if(porRequested){
+    setChipActive(porToggle, true);
+    minPriceInput.value = '';
+    maxPriceInput.value = '';
+    minPriceInput.disabled = true;
+    maxPriceInput.disabled = true;
+  }
 
   if(params.has('checkin')) document.getElementById('fCheckin').value = params.get('checkin');
   if(params.has('checkout')) document.getElementById('fCheckout').value = params.get('checkout');
@@ -556,7 +604,10 @@ document.getElementById('clearFilters').addEventListener('click', () => {
   document.getElementById('priceError').style.display = 'none';
   amenityChipsWrap.querySelectorAll('.amenity-chip.active').forEach(c => setChipActive(c, false));
   activeAmenities.clear();
-  currentFilters = { location:'', type:'', bedrooms:0, bathrooms:0, guests:0, parking:0, minPrice:null, maxPrice:null, checkin:'', checkout:'' };
+  setChipActive(porToggle, false);
+  minPriceInput.disabled = false;
+  maxPriceInput.disabled = false;
+  currentFilters = { location:'', type:'', por:false, bedrooms:0, bathrooms:0, guests:0, parking:0, minPrice:null, maxPrice:null, checkin:'', checkout:'' };
   updateURLFromFilters();
   renderResults();
 });

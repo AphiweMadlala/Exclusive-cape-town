@@ -405,6 +405,7 @@
     font-family:'Jost',sans-serif; font-size:12.5px; padding:10px 12px; border-radius:6px;
     color-scheme:dark;
   }
+  .f-field input:disabled{opacity:.4; cursor:not-allowed;}
   .f-field select option{background:var(--ink-2);}
   .amenity-block{margin-bottom:24px;}
   .amenity-block .cap{display:block; margin-bottom:14px; color:var(--stone);}

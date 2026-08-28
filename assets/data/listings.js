@@ -1,6 +1,6 @@
 const LISTINGS = [
   {
-    id: "villa-10", name: "The Camps Bay Terrace", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-10", name: "The Camps Bay Terrace", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 9000, priceOnRequest: false, bedrooms: 3, bathrooms: 3, guests: 6, parkingSpaces: 1,
     rating: 4.8, popularity: 70, dateAdded: "2026-07-10", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -27,7 +27,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-11", name: "Twelve Apostles Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-11", name: "Twelve Apostles Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 30000, priceOnRequest: true, bedrooms: 3, bathrooms: 3, guests: 6, parkingSpaces: 4,
     rating: 4.9, popularity: 80, dateAdded: "2026-07-10", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -54,7 +54,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-12", name: "The Cove", location: "Knysna", region: "Garden Route", propertyType: "Villa",
+    id: "villa-12", name: "The Cove", location: "Knysna", region: "Garden Route", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 25500, priceOnRequest: false, bedrooms: 4, bathrooms: 4, guests: 8, parkingSpaces: 0,
     rating: 4.9, popularity: 75, dateAdded: "2026-07-10", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -81,7 +81,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-13", name: "Kanonkop Lagoon Villa", location: "Kanonkop", region: "Knysna", propertyType: "Villa",
+    id: "villa-13", name: "Kanonkop Lagoon Villa", location: "Kanonkop", region: "Knysna", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 13900, priceOnRequest: false, bedrooms: 5, bathrooms: 5, guests: 10, parkingSpaces: 0,
     rating: 4.7, popularity: 68, dateAdded: "2026-07-10", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -108,7 +108,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-14", name: "The Kogelberg Retreat", location: "Rooi Els", region: "Cape Whale Coast", propertyType: "Villa",
+    id: "villa-14", name: "The Kogelberg Retreat", location: "Rooi Els", region: "Cape Whale Coast", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 4500, priceOnRequest: false, bedrooms: 3, bathrooms: 3, guests: 6, parkingSpaces: 0,
     rating: 4.5, popularity: 50, dateAdded: "2026-07-10", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -135,7 +135,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-15", name: "The Aurum Residence", location: "Bantry Bay", region: "Cape Town", propertyType: "Apartment",
+    id: "villa-15", name: "The Aurum Residence", location: "Bantry Bay", region: "Cape Town", propertyType: "Apartment", typeCategory: "penthouse",
     pricePerNight: 12000, priceOnRequest: false, bedrooms: 3, bathrooms: 3, guests: 6, parkingSpaces: 0,
     rating: 4.8, popularity: 65, dateAdded: "2026-07-12", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -162,7 +162,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-16", name: "The Belvedere Residence", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-16", name: "The Belvedere Residence", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 18000, priceOnRequest: false, bedrooms: 5, bathrooms: 5, guests: 10, parkingSpaces: 2,
     rating: 4.9, popularity: 78, dateAdded: "2026-07-12", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -189,7 +189,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-17", name: "The Fynbos Lodge", location: "George Private Nature Reserve", region: "Garden Route", propertyType: "Villa",
+    id: "villa-17", name: "The Fynbos Lodge", location: "George Private Nature Reserve", region: "Garden Route", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 5500, priceOnRequest: false, bedrooms: 3, bathrooms: 3, guests: 6, parkingSpaces: 1,
     rating: 4.6, popularity: 55, dateAdded: "2026-07-13", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -216,7 +216,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-18", name: "Houghton Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-18", name: "Houghton Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 10350, priceOnRequest: false, bedrooms: 3, bathrooms: 4, guests: 6, parkingSpaces: 2,
     rating: 4.7, popularity: 70, dateAdded: "2026-07-13", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -243,7 +243,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-19", name: "Villa Geneva", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-19", name: "Villa Geneva", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 21000, priceOnRequest: false, bedrooms: 6, bathrooms: 6, guests: 12, parkingSpaces: 4,
     rating: 4.9, popularity: 80, dateAdded: "2026-07-13", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -270,7 +270,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-20", name: "The Sovereign Penthouse", location: "Bantry Bay", region: "Cape Town", propertyType: "Apartment",
+    id: "villa-20", name: "The Sovereign Penthouse", location: "Bantry Bay", region: "Cape Town", propertyType: "Apartment", typeCategory: "penthouse",
     pricePerNight: 14890, priceOnRequest: false, bedrooms: 3, bathrooms: 3, guests: 6, parkingSpaces: 2,
     rating: 4.8, popularity: 72, dateAdded: "2026-07-13", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -297,7 +297,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-21", name: "The Clifton Sanctuary", location: "Clifton", region: "Cape Town", propertyType: "Villa",
+    id: "villa-21", name: "The Clifton Sanctuary", location: "Clifton", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 65000, priceOnRequest: true, bedrooms: 6, bathrooms: 7, guests: 12, parkingSpaces: 4,
     rating: 4.9, popularity: 82, dateAdded: "2026-07-13", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -324,7 +324,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-22", name: "The Bakoven Penthouse", location: "Bakoven", region: "Cape Town", propertyType: "Apartment",
+    id: "villa-22", name: "The Bakoven Penthouse", location: "Bakoven", region: "Cape Town", propertyType: "Apartment", typeCategory: "penthouse",
     pricePerNight: 10000, priceOnRequest: false, bedrooms: 2, bathrooms: 2, guests: 4, parkingSpaces: 1,
     rating: 4.7, popularity: 60, dateAdded: "2026-07-13", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -351,7 +351,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-23", name: "The Panorama Estate", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-23", name: "The Panorama Estate", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 195000, priceOnRequest: false, bedrooms: 6, bathrooms: 6, guests: 12, parkingSpaces: 2,
     rating: 4.9, popularity: 88, dateAdded: "2026-07-13", featured: true, featuredOrder: 1,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -378,7 +378,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-24", name: "The Ridgeline Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-24", name: "The Ridgeline Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 14900, priceOnRequest: false, bedrooms: 4, bathrooms: 4, guests: 8, parkingSpaces: 2,
     rating: 4.8, popularity: 65, dateAdded: "2026-07-13", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -405,7 +405,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-25", name: "The Horizon Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-25", name: "The Horizon Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 35000, priceOnRequest: true, bedrooms: 3, bathrooms: 3, guests: 6, parkingSpaces: 4,
     rating: 4.9, popularity: 75, dateAdded: "2026-07-13", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -432,7 +432,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-26", name: "The Ascent Villa", location: "Higgovale", region: "Cape Town", propertyType: "Villa",
+    id: "villa-26", name: "The Ascent Villa", location: "Higgovale", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 11000, priceOnRequest: false, bedrooms: 4, bathrooms: 4, guests: 8, parkingSpaces: 2,
     rating: 4.8, popularity: 68, dateAdded: "2026-07-13", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -459,7 +459,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-27", name: "The Llandudno Hideaway", location: "Llandudno", region: "Cape Town", propertyType: "Villa",
+    id: "villa-27", name: "The Llandudno Hideaway", location: "Llandudno", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 38000, priceOnRequest: false, bedrooms: 4, bathrooms: 4, guests: 8, parkingSpaces: 2,
     rating: 4.8, popularity: 72, dateAdded: "2026-07-14", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -486,7 +486,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-28", name: "The Bishopscourt Estate", location: "Bishopscourt", region: "Cape Town", propertyType: "Villa",
+    id: "villa-28", name: "The Bishopscourt Estate", location: "Bishopscourt", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 220000, priceOnRequest: true, bedrooms: 9, bathrooms: 9.5, guests: 18, parkingSpaces: 6,
     rating: 4.9, popularity: 90, dateAdded: "2026-07-14", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -513,7 +513,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-29", name: "The Apostles Vista", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-29", name: "The Apostles Vista", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 13500, priceOnRequest: false, bedrooms: 6, bathrooms: 6, guests: 12, parkingSpaces: 4,
     rating: 4.7, popularity: 65, dateAdded: "2026-07-14", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -540,7 +540,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-30", name: "The Crescent Bay Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-30", name: "The Crescent Bay Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 55000, priceOnRequest: true, bedrooms: 6, bathrooms: 6, guests: 10, parkingSpaces: 3,
     rating: 4.8, popularity: 75, dateAdded: "2026-07-14", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -567,7 +567,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-31", name: "The Golden Mile Beach House", location: "St Helena Bay", region: "West Coast", propertyType: "Villa",
+    id: "villa-31", name: "The Golden Mile Beach House", location: "St Helena Bay", region: "West Coast", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 7500, priceOnRequest: false, bedrooms: 4, bathrooms: 4, guests: 8, parkingSpaces: 2,
     rating: 4.6, popularity: 60, dateAdded: "2026-07-14", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -594,7 +594,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-32", name: "The Constantia Retreat", location: "Constantia", region: "Cape Town", propertyType: "Villa",
+    id: "villa-32", name: "The Constantia Retreat", location: "Constantia", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 85000, priceOnRequest: true, bedrooms: 6, bathrooms: 5, guests: 12, parkingSpaces: 4,
     rating: 4.8, popularity: 78, dateAdded: "2026-07-14", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -621,7 +621,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-33", name: "Villa Atlantica", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-33", name: "Villa Atlantica", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 7800, priceOnRequest: false, bedrooms: 4, bathrooms: 4, guests: 8, parkingSpaces: 2,
     rating: 4.7, popularity: 66, dateAdded: "2026-07-14", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -647,7 +647,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-34", name: "The Cantilever Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-34", name: "The Cantilever Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 25000, priceOnRequest: false, bedrooms: 7, bathrooms: 7, guests: 14, parkingSpaces: 2,
     rating: 4.9, popularity: 87, dateAdded: "2026-07-14", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -674,7 +674,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-35", name: "The Clifton Sundown Penthouse", location: "Clifton", region: "Cape Town", propertyType: "Apartment",
+    id: "villa-35", name: "The Clifton Sundown Penthouse", location: "Clifton", region: "Cape Town", propertyType: "Apartment", typeCategory: "penthouse",
     pricePerNight: 8090, priceOnRequest: false, bedrooms: 3, bathrooms: 3, guests: 6, parkingSpaces: 2,
     rating: 4.7, popularity: 64, dateAdded: "2026-07-14", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -701,7 +701,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-36", name: "Nimanoe", location: "Noordhoek", region: "Cape Town", propertyType: "Villa",
+    id: "villa-36", name: "Nimanoe", location: "Noordhoek", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 42000, priceOnRequest: true, bedrooms: 4, bathrooms: 5, guests: 8, parkingSpaces: 4,
     rating: 4.8, popularity: 74, dateAdded: "2026-07-15", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -728,7 +728,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-37", name: "The Yzerfontein Dune House", location: "Yzerfontein", region: "West Coast", propertyType: "Villa",
+    id: "villa-37", name: "The Yzerfontein Dune House", location: "Yzerfontein", region: "West Coast", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 11200, priceOnRequest: false, bedrooms: 6, bathrooms: 5, guests: 12, parkingSpaces: 3,
     rating: 4.7, popularity: 68, dateAdded: "2026-07-15", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -755,7 +755,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-38", name: "The Voyager House", location: "Britannia Bay", region: "West Coast", propertyType: "Villa",
+    id: "villa-38", name: "The Voyager House", location: "Britannia Bay", region: "West Coast", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 6900, priceOnRequest: false, bedrooms: 4, bathrooms: 4, guests: 8, parkingSpaces: 2,
     rating: 4.7, popularity: 62, dateAdded: "2026-07-15", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -782,7 +782,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-39", name: "Villa Eleven", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-39", name: "Villa Eleven", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 15000, priceOnRequest: false, bedrooms: 4, bathrooms: 4, guests: 8, parkingSpaces: 2,
     rating: 4.7, popularity: 60, dateAdded: "2026-07-15", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -810,7 +810,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-40", name: "The Colyn House", location: "Higgovale", region: "Cape Town", propertyType: "Villa",
+    id: "villa-40", name: "The Colyn House", location: "Higgovale", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 11000, priceOnRequest: false, bedrooms: 4, bathrooms: 4, guests: 8, parkingSpaces: 3,
     rating: 4.7, popularity: 55, dateAdded: "2026-07-15", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -833,7 +833,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-41", name: "Dune Edge Guest House", location: "Yzerfontein", region: "West Coast", propertyType: "Guest House",
+    id: "villa-41", name: "Dune Edge Guest House", location: "Yzerfontein", region: "West Coast", propertyType: "Guest House", typeCategory: null,
     pricePerNight: 4900, priceOnRequest: false, bedrooms: 3, bathrooms: 3, guests: 6, parkingSpaces: 3,
     rating: 4.8, popularity: 50, dateAdded: "2026-07-15", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT — price is per suite",
@@ -860,7 +860,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-42", name: "The Boardwalk House", location: "Britannia Bay", region: "West Coast", propertyType: "Villa",
+    id: "villa-42", name: "The Boardwalk House", location: "Britannia Bay", region: "West Coast", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 8900, priceOnRequest: false, bedrooms: 5, bathrooms: 5, guests: 10, parkingSpaces: 2,
     rating: 4.8, popularity: 58, dateAdded: "2026-07-16", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -885,7 +885,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-43", name: "Hilltop Vines Hotel", location: "Constantia", region: "Cape Town", propertyType: "Villa",
+    id: "villa-43", name: "Hilltop Vines Hotel", location: "Constantia", region: "Cape Town", propertyType: "Villa", typeCategory: "hotel",
     pricePerNight: 4900, priceOnRequest: false, bedrooms: 13, bathrooms: 13, guests: 26, parkingSpaces: 6,
     rating: 4.8, popularity: 55, dateAdded: "2026-07-16", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT — price per room, 2 guests",
@@ -913,7 +913,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-44", name: "The 240 House", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-44", name: "The 240 House", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 16000, priceOnRequest: false, bedrooms: 5, bathrooms: 5, guests: 10, parkingSpaces: 2,
     rating: 4.8, popularity: 60, dateAdded: "2026-07-16", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -940,7 +940,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-45", name: "Stonehurst Estate", location: "Constantia", region: "Cape Town", propertyType: "Villa",
+    id: "villa-45", name: "Stonehurst Estate", location: "Constantia", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 42000, priceOnRequest: true, bedrooms: 4, bathrooms: 4.5, guests: 8, parkingSpaces: 2,
     rating: 4.8, popularity: 58, dateAdded: "2026-07-16", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -967,7 +967,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-46", name: "The Amphitheatre Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-46", name: "The Amphitheatre Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 20000, priceOnRequest: false, bedrooms: 9, bathrooms: 9, guests: 18, parkingSpaces: 6,
     rating: 4.9, popularity: 82, dateAdded: "2026-07-16", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -994,7 +994,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-47", name: "The Fresnaye Retreat", location: "Fresnaye", region: "Cape Town", propertyType: "Villa",
+    id: "villa-47", name: "The Fresnaye Retreat", location: "Fresnaye", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 15000, priceOnRequest: false, bedrooms: 6, bathrooms: 5.5, guests: 12, parkingSpaces: 2,
     rating: 4.8, popularity: 74, dateAdded: "2026-07-17", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -1016,7 +1016,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-48", name: "The Lion's Head Penthouse", location: "Camps Bay", region: "Cape Town", propertyType: "Apartment",
+    id: "villa-48", name: "The Lion's Head Penthouse", location: "Camps Bay", region: "Cape Town", propertyType: "Apartment", typeCategory: "penthouse",
     pricePerNight: 7000, priceOnRequest: false, bedrooms: 2, bathrooms: 2, guests: 4, parkingSpaces: 1,
     rating: 4.7, popularity: 68, dateAdded: "2026-07-17", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -1038,7 +1038,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-49", name: "The Cedar Slat Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-49", name: "The Cedar Slat Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 11900, priceOnRequest: false, bedrooms: 4, bathrooms: 4, guests: 8, parkingSpaces: 2,
     rating: 4.7, popularity: 70, dateAdded: "2026-07-17", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -1063,7 +1063,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-50", name: "The Vantage Villa", location: "Higgovale", region: "Cape Town", propertyType: "Villa",
+    id: "villa-50", name: "The Vantage Villa", location: "Higgovale", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 10090, priceOnRequest: false, bedrooms: 5, bathrooms: 5, guests: 10, parkingSpaces: 3,
     rating: 4.8, popularity: 76, dateAdded: "2026-07-17", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -1085,7 +1085,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-51", name: "The Rim Flow Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-51", name: "The Rim Flow Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 8900, priceOnRequest: false, bedrooms: 3, bathrooms: 3, guests: 6, parkingSpaces: 2,
     rating: 4.7, popularity: 69, dateAdded: "2026-07-17", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -1107,7 +1107,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-52", name: "The Dusk Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-52", name: "The Dusk Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 8800, priceOnRequest: false, bedrooms: 5, bathrooms: 5, guests: 10, parkingSpaces: 2,
     rating: 4.7, popularity: 71, dateAdded: "2026-07-17", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -1129,7 +1129,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-53", name: "The Cliffside Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-53", name: "The Cliffside Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 30000, priceOnRequest: true, bedrooms: 3, bathrooms: 3, guests: 6, parkingSpaces: 2,
     rating: 4.8, popularity: 73, dateAdded: "2026-07-17", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -1150,7 +1150,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-54", name: "Villa Luna", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-54", name: "Villa Luna", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 8000, priceOnRequest: false, bedrooms: 5, bathrooms: 5, guests: 10, parkingSpaces: 2,
     rating: 4.7, popularity: 70, dateAdded: "2026-07-17", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -1172,7 +1172,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-55", name: "The Signal Hill Cellar Villa", location: "Green Point", region: "Cape Town", propertyType: "Villa",
+    id: "villa-55", name: "The Signal Hill Cellar Villa", location: "Green Point", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 6090, priceOnRequest: false, bedrooms: 5, bathrooms: 5, guests: 10, parkingSpaces: 2,
     rating: 4.8, popularity: 68, dateAdded: "2026-07-18", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -1194,7 +1194,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-56", name: "The Twelve Apostles Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-56", name: "The Twelve Apostles Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 4000, priceOnRequest: false, bedrooms: 3, bathrooms: 3, guests: 6, parkingSpaces: 2,
     rating: 4.7, popularity: 62, dateAdded: "2026-07-18", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -1216,7 +1216,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-57", name: "The Misty Cliffs Retreat", location: "Misty Cliffs", region: "Cape Town", propertyType: "Villa",
+    id: "villa-57", name: "The Misty Cliffs Retreat", location: "Misty Cliffs", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 7500, priceOnRequest: false, bedrooms: 4, bathrooms: 4, guests: 8, parkingSpaces: 2,
     rating: 4.8, popularity: 65, dateAdded: "2026-07-18", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -1238,7 +1238,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-58", name: "The Camps Bay Grand Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-58", name: "The Camps Bay Grand Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 20000, priceOnRequest: false, bedrooms: 5, bathrooms: 5, guests: 10, parkingSpaces: 2,
     rating: 4.9, popularity: 80, dateAdded: "2026-07-18", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -1260,7 +1260,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-59", name: "The Sea Breeze Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-59", name: "The Sea Breeze Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 4700, priceOnRequest: false, bedrooms: 3, bathrooms: 3, guests: 6, parkingSpaces: 1,
     rating: 4.7, popularity: 63, dateAdded: "2026-07-18", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -1282,7 +1282,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-60", name: "The Bantry Bay Panorama Villa", location: "Bantry Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-60", name: "The Bantry Bay Panorama Villa", location: "Bantry Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 25000, priceOnRequest: true, bedrooms: 3, bathrooms: 3, guests: 6, parkingSpaces: 2,
     rating: 4.9, popularity: 78, dateAdded: "2026-07-18", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -1304,7 +1304,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-61", name: "The Camps Bay Curve Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-61", name: "The Camps Bay Curve Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 7000, priceOnRequest: false, bedrooms: 3, bathrooms: 3, guests: 6, parkingSpaces: 2,
     rating: 4.7, popularity: 66, dateAdded: "2026-07-18", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -1326,7 +1326,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-62", name: "The Wilderness Beach House", location: "Wilderness", region: "Garden Route", propertyType: "Villa",
+    id: "villa-62", name: "The Wilderness Beach House", location: "Wilderness", region: "Garden Route", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 12000, priceOnRequest: false, bedrooms: 5, bathrooms: 5, guests: 10, parkingSpaces: 3,
     rating: 4.9, popularity: 76, dateAdded: "2026-07-18", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -1348,7 +1348,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-63", name: "The Camps Bay Studio Retreat", location: "Camps Bay", region: "Cape Town", propertyType: "Apartment",
+    id: "villa-63", name: "The Camps Bay Studio Retreat", location: "Camps Bay", region: "Cape Town", propertyType: "Apartment", typeCategory: "apartment",
     pricePerNight: 4500, priceOnRequest: false, bedrooms: 1, bathrooms: 1, guests: 2, parkingSpaces: 1,
     rating: 4.6, popularity: 60, dateAdded: "2026-07-18", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -1370,7 +1370,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-64", name: "The Camps Bay Garden Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-64", name: "The Camps Bay Garden Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 5000, priceOnRequest: false, bedrooms: 4, bathrooms: 3, guests: 6, parkingSpaces: 2,
     rating: 4.6, popularity: 61, dateAdded: "2026-07-18", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -1392,7 +1392,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-65", name: "The Shelly Point Beach Villa", location: "Shelly Point", region: "West Coast", propertyType: "Villa",
+    id: "villa-65", name: "The Shelly Point Beach Villa", location: "Shelly Point", region: "West Coast", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 5000, priceOnRequest: false, bedrooms: 4, bathrooms: 4, guests: 8, parkingSpaces: 2,
     rating: 4.7, popularity: 58, dateAdded: "2026-07-18", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -1414,7 +1414,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-66", name: "R I V A", location: "Bakoven", region: "Cape Town", propertyType: "Guest House",
+    id: "villa-66", name: "R I V A", location: "Bakoven", region: "Cape Town", propertyType: "Guest House", typeCategory: null,
     pricePerNight: 4900, priceOnRequest: true, bedrooms: 5, bathrooms: 5, guests: 10, parkingSpaces: 1,
     rating: 4.8, popularity: 62, dateAdded: "2026-07-18", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT — Penthouse priced on request; Luxury Suite from R4,900 p/n, Exclusive Use of the full guest house also available on request",
@@ -1436,7 +1436,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-67", name: "The Marina Estate Penthouse", location: "V&A Waterfront", region: "Cape Town", propertyType: "Apartment",
+    id: "villa-67", name: "The Marina Estate Penthouse", location: "V&A Waterfront", region: "Cape Town", propertyType: "Apartment", typeCategory: "penthouse",
     pricePerNight: 8500, priceOnRequest: false, bedrooms: 3, bathrooms: 3, guests: 6, parkingSpaces: 2,
     rating: 4.8, popularity: 60, dateAdded: "2026-07-18", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -1458,7 +1458,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-68", name: "The Camps Bay Courtyard Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-68", name: "The Camps Bay Courtyard Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 6000, priceOnRequest: false, bedrooms: 4, bathrooms: 4, guests: 8, parkingSpaces: 2,
     rating: 4.6, popularity: 59, dateAdded: "2026-07-18", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -1480,7 +1480,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-69", name: "48 Theresa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-69", name: "48 Theresa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 15000, priceOnRequest: false, bedrooms: 10, bathrooms: 9, guests: 20, parkingSpaces: 4,
     rating: 4.7, popularity: 64, dateAdded: "2026-07-18", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -1502,7 +1502,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-70", name: "The Bakoven Terrace Penthouse", location: "Bakoven", region: "Cape Town", propertyType: "Apartment",
+    id: "villa-70", name: "The Bakoven Terrace Penthouse", location: "Bakoven", region: "Cape Town", propertyType: "Apartment", typeCategory: "penthouse",
     pricePerNight: 8000, priceOnRequest: false, bedrooms: 2, bathrooms: 2, guests: 4, parkingSpaces: 2,
     rating: 4.7, popularity: 58, dateAdded: "2026-07-18", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -1524,7 +1524,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-71", name: "The Green Point Ridge Villa", location: "Green Point", region: "Cape Town", propertyType: "Villa",
+    id: "villa-71", name: "The Green Point Ridge Villa", location: "Green Point", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 8600, priceOnRequest: false, bedrooms: 4, bathrooms: 4, guests: 8, parkingSpaces: 2,
     rating: 4.8, popularity: 63, dateAdded: "2026-07-19", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -1551,7 +1551,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-72", name: "The Stadium View Penthouse", location: "Green Point", region: "Cape Town", propertyType: "Apartment",
+    id: "villa-72", name: "The Stadium View Penthouse", location: "Green Point", region: "Cape Town", propertyType: "Apartment", typeCategory: "penthouse",
     pricePerNight: 4900, priceOnRequest: false, bedrooms: 2, bathrooms: 2, guests: 4, parkingSpaces: 1,
     rating: 4.6, popularity: 56, dateAdded: "2026-07-19", featured: false,
     minNights: 3, priceNote: "Rate excludes 15% VAT",
@@ -1573,7 +1573,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-73", name: "The Nettleton Ridge Villa", location: "Clifton", region: "Cape Town", propertyType: "Villa",
+    id: "villa-73", name: "The Nettleton Ridge Villa", location: "Clifton", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 100000, priceOnRequest: false, bedrooms: 6, bathrooms: 6, guests: 12, parkingSpaces: 2,
     rating: 4.9, popularity: 92, dateAdded: "2026-07-19", featured: true, featuredOrder: 2,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -1595,7 +1595,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-74", name: "The Zenith Penthouse", location: "Cape Town City Centre", region: "Cape Town", propertyType: "Apartment",
+    id: "villa-74", name: "The Zenith Penthouse", location: "Cape Town City Centre", region: "Cape Town", propertyType: "Apartment", typeCategory: "penthouse",
     pricePerNight: 7500, priceOnRequest: false, bedrooms: 2, bathrooms: 2, guests: 4, parkingSpaces: 1,
     rating: 4.8, popularity: 80, dateAdded: "2026-07-19", featured: false,
     minNights: 3, priceNote: "Rate excludes 15% VAT",
@@ -1616,7 +1616,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-75", name: "The Camps Bay Altitude Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-75", name: "The Camps Bay Altitude Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 9000, priceOnRequest: false, bedrooms: 5, bathrooms: 4, guests: 12, parkingSpaces: 2,
     rating: 4.7, popularity: 70, dateAdded: "2026-07-19", featured: false,
     minNights: 3, priceNote: "Rate excludes 15% VAT",
@@ -1636,7 +1636,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-76", name: "The Camps Bay Horizon Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-76", name: "The Camps Bay Horizon Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 15000, priceOnRequest: false, bedrooms: 5, bathrooms: 5, guests: 12, parkingSpaces: 2,
     rating: 4.8, popularity: 75, dateAdded: "2026-07-20", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -1658,7 +1658,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-77", name: "The Fresnaye Panorama Villa", location: "Fresnaye", region: "Cape Town", propertyType: "Villa",
+    id: "villa-77", name: "The Fresnaye Panorama Villa", location: "Fresnaye", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 25000, priceOnRequest: false, bedrooms: 6, bathrooms: 5, guests: 12, parkingSpaces: 2,
     rating: 4.8, popularity: 78, dateAdded: "2026-07-20", featured: false,
     minNights: 3, priceNote: "Rate excludes 15% VAT",
@@ -1680,7 +1680,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-78", name: "The Fresnaye Haven Villa", location: "Fresnaye", region: "Cape Town", propertyType: "Villa",
+    id: "villa-78", name: "The Fresnaye Haven Villa", location: "Fresnaye", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 100000, priceOnRequest: false, bedrooms: 4, bathrooms: 4, guests: 8, parkingSpaces: 2,
     rating: 4.9, popularity: 85, dateAdded: "2026-07-20", featured: false,
     minNights: 3, priceNote: "Rate excludes 15% VAT",
@@ -1702,7 +1702,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-79", name: "The Camps Bay Twin Residence", location: "Camps Bay", region: "Cape Town", propertyType: "Apartment",
+    id: "villa-79", name: "The Camps Bay Twin Residence", location: "Camps Bay", region: "Cape Town", propertyType: "Apartment", typeCategory: "apartment",
     pricePerNight: 9000, priceOnRequest: false, bedrooms: 3, bathrooms: 3, guests: 6, parkingSpaces: 1,
     rating: 4.6, popularity: 65, dateAdded: "2026-07-20", featured: false,
     minNights: 3, priceNote: "Rate excludes 15% VAT",
@@ -1724,7 +1724,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-80", name: "The Camps Bay Crest Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-80", name: "The Camps Bay Crest Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 7000, priceOnRequest: false, bedrooms: 3, bathrooms: 3, guests: 8, parkingSpaces: 2,
     rating: 4.6, popularity: 60, dateAdded: "2026-07-20", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -1746,7 +1746,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-81", name: "The Robberg Beach Estate", location: "Plettenberg Bay", region: "Garden Route", propertyType: "Villa",
+    id: "villa-81", name: "The Robberg Beach Estate", location: "Plettenberg Bay", region: "Garden Route", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 10000, priceOnRequest: false, bedrooms: 8, bathrooms: 8, guests: 18, parkingSpaces: 4,
     rating: 4.8, popularity: 75, dateAdded: "2026-07-20", featured: false,
     minNights: 3, priceNote: "Rate excludes 15% VAT",
@@ -1768,7 +1768,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-82", name: "The Camps Bay Rooftop Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-82", name: "The Camps Bay Rooftop Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 14000, priceOnRequest: false, bedrooms: 6, bathrooms: 5, guests: 12, parkingSpaces: 2,
     rating: 4.7, popularity: 68, dateAdded: "2026-07-20", featured: false,
     minNights: 3, priceNote: "Rate excludes 15% VAT",
@@ -1790,7 +1790,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-83", name: "The Blouberg Vista Penthouse", location: "Bloubergstrand", region: "West Coast", propertyType: "Apartment",
+    id: "villa-83", name: "The Blouberg Vista Penthouse", location: "Bloubergstrand", region: "West Coast", propertyType: "Apartment", typeCategory: "penthouse",
     pricePerNight: 6000, priceOnRequest: false, bedrooms: 3, bathrooms: 3, guests: 6, parkingSpaces: 1,
     rating: 4.6, popularity: 55, dateAdded: "2026-07-20", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -1812,7 +1812,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-84", name: "The Clifton Cantilever Villa", location: "Clifton", region: "Cape Town", propertyType: "Villa",
+    id: "villa-84", name: "The Clifton Cantilever Villa", location: "Clifton", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 65000, priceOnRequest: false, bedrooms: 5, bathrooms: 5, guests: 10, parkingSpaces: 2,
     rating: 4.8, popularity: 87, dateAdded: "2026-07-20", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -1834,7 +1834,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-85", name: "The Higgovale Linear Villa", location: "Higgovale", region: "Cape Town", propertyType: "Villa",
+    id: "villa-85", name: "The Higgovale Linear Villa", location: "Higgovale", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 85000, priceOnRequest: false, bedrooms: 4, bathrooms: 4, guests: 8, parkingSpaces: 2,
     rating: 4.8, popularity: 86, dateAdded: "2026-07-20", featured: false,
     minNights: 3, priceNote: "Rate excludes 15% VAT",
@@ -1856,7 +1856,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-86", name: "The Camps Bay Origin Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-86", name: "The Camps Bay Origin Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 15000, priceOnRequest: false, bedrooms: 9, bathrooms: 9, guests: 18, parkingSpaces: 2,
     rating: 4.8, popularity: 85, dateAdded: "2026-07-20", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -1878,7 +1878,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-87", name: "The Camps Bay Oasis Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-87", name: "The Camps Bay Oasis Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 13000, priceOnRequest: false, bedrooms: 9, bathrooms: 8, guests: 18, parkingSpaces: 3,
     rating: 4.7, popularity: 81, dateAdded: "2026-07-20", featured: false,
     minNights: 3, priceNote: "Rate excludes 15% VAT",
@@ -1900,7 +1900,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-88", name: "The Clifton Plunge Deck Apartment", location: "Clifton", region: "Cape Town", propertyType: "Apartment",
+    id: "villa-88", name: "The Clifton Plunge Deck Apartment", location: "Clifton", region: "Cape Town", propertyType: "Apartment", typeCategory: "apartment",
     pricePerNight: 4500, priceOnRequest: false, bedrooms: 2, bathrooms: 2, guests: 4, parkingSpaces: 1,
     rating: 4.6, popularity: 74, dateAdded: "2026-07-20", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -1922,7 +1922,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-89", name: "The Camps Bay 280-Degree Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-89", name: "The Camps Bay 280-Degree Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 12000, priceOnRequest: false, bedrooms: 4, bathrooms: 4, guests: 8, parkingSpaces: 5,
     rating: 4.7, popularity: 79, dateAdded: "2026-07-20", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -1944,7 +1944,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-90", name: "The Camps Bay Sunset Apartment", location: "Camps Bay", region: "Cape Town", propertyType: "Apartment",
+    id: "villa-90", name: "The Camps Bay Sunset Apartment", location: "Camps Bay", region: "Cape Town", propertyType: "Apartment", typeCategory: "apartment",
     pricePerNight: 4000, priceOnRequest: false, bedrooms: 2, bathrooms: 2, guests: 4, parkingSpaces: 1,
     rating: 4.6, popularity: 73, dateAdded: "2026-07-20", featured: false,
     minNights: 3, priceNote: "Rate excludes 15% VAT",
@@ -1966,7 +1966,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-91", name: "The Camps Bay Skyline Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-91", name: "The Camps Bay Skyline Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 11500, priceOnRequest: false, bedrooms: 4, bathrooms: 4, guests: 8, parkingSpaces: 2,
     rating: 4.7, popularity: 78, dateAdded: "2026-07-20", featured: false,
     minNights: 3, priceNote: "Rate excludes 15% VAT",
@@ -1988,7 +1988,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-92", name: "The Camps Bay Rim-Deck Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-92", name: "The Camps Bay Rim-Deck Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 6500, priceOnRequest: false, bedrooms: 3, bathrooms: 3, guests: 6, parkingSpaces: 2,
     rating: 4.6, popularity: 75, dateAdded: "2026-07-20", featured: false,
     minNights: 3, priceNote: "Rate excludes 15% VAT",
@@ -2010,7 +2010,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-93", name: "The Constantia Modernist Estate", location: "Constantia", region: "Cape Town", propertyType: "Villa",
+    id: "villa-93", name: "The Constantia Modernist Estate", location: "Constantia", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 30000, priceOnRequest: false, bedrooms: 7, bathrooms: 7, guests: 14, parkingSpaces: 4,
     rating: 4.9, popularity: 88, dateAdded: "2026-07-20", featured: false,
     minNights: 3, priceNote: "Rate excludes 15% VAT",
@@ -2032,7 +2032,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-94", name: "The Camps Bay Elevation Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-94", name: "The Camps Bay Elevation Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 40000, priceOnRequest: true, bedrooms: 6, bathrooms: 6, guests: 12, parkingSpaces: 2,
     rating: 4.8, popularity: 80, dateAdded: "2026-07-21", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -2054,7 +2054,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-95", name: "The Nettleton Road Masterpiece", location: "Clifton", region: "Cape Town", propertyType: "Villa",
+    id: "villa-95", name: "The Nettleton Road Masterpiece", location: "Clifton", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 60000, priceOnRequest: true, bedrooms: 4, bathrooms: 4, guests: 8, parkingSpaces: 2,
     rating: 4.9, popularity: 82, dateAdded: "2026-07-21", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -2075,7 +2075,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-96", name: "The Hout Bay Gallery Villa", location: "Hout Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-96", name: "The Hout Bay Gallery Villa", location: "Hout Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 45000, priceOnRequest: true, bedrooms: 7, bathrooms: 5, guests: 14, parkingSpaces: 4,
     rating: 4.8, popularity: 78, dateAdded: "2026-07-21", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -2097,7 +2097,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-97", name: "The Camps Bay Sun Nook Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-97", name: "The Camps Bay Sun Nook Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 9980, priceOnRequest: false, bedrooms: 6, bathrooms: 5, guests: 12, parkingSpaces: 2,
     rating: 4.7, popularity: 75, dateAdded: "2026-07-21", featured: false,
     minNights: 3, priceNote: "Rate excludes 15% VAT",
@@ -2119,7 +2119,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-98", name: "The Victoria Road Penthouse", location: "Camps Bay", region: "Cape Town", propertyType: "Apartment",
+    id: "villa-98", name: "The Victoria Road Penthouse", location: "Camps Bay", region: "Cape Town", propertyType: "Apartment", typeCategory: "penthouse",
     pricePerNight: 3200, priceOnRequest: false, bedrooms: 1, bathrooms: 1, guests: 2, parkingSpaces: 1,
     rating: 4.6, popularity: 70, dateAdded: "2026-07-21", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -2141,7 +2141,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-99", name: "The Bantry Bay Vantage Villa", location: "Bantry Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-99", name: "The Bantry Bay Vantage Villa", location: "Bantry Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 20000, priceOnRequest: false, bedrooms: 4, bathrooms: 5, guests: 8, parkingSpaces: 2,
     rating: 4.8, popularity: 76, dateAdded: "2026-07-21", featured: false,
     minNights: 3, priceNote: "Rate excludes 15% VAT",
@@ -2163,7 +2163,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-100", name: "The Sea Point Rooftop Penthouse", location: "Sea Point", region: "Cape Town", propertyType: "Apartment",
+    id: "villa-100", name: "The Sea Point Rooftop Penthouse", location: "Sea Point", region: "Cape Town", propertyType: "Apartment", typeCategory: "penthouse",
     pricePerNight: 9000, priceOnRequest: false, bedrooms: 2, bathrooms: 2, guests: 6, parkingSpaces: 1,
     rating: 4.7, popularity: 74, dateAdded: "2026-07-21", featured: false,
     minNights: 3, priceNote: "Rate excludes 15% VAT",
@@ -2185,7 +2185,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-101", name: "The Camps Bay Wraparound Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-101", name: "The Camps Bay Wraparound Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 13000, priceOnRequest: false, bedrooms: 6, bathrooms: 6, guests: 12, parkingSpaces: 2,
     rating: 4.8, popularity: 77, dateAdded: "2026-07-22", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -2207,7 +2207,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-102", name: "The Camps Bay Wavefront Penthouse", location: "Camps Bay", region: "Cape Town", propertyType: "Apartment",
+    id: "villa-102", name: "The Camps Bay Wavefront Penthouse", location: "Camps Bay", region: "Cape Town", propertyType: "Apartment", typeCategory: "penthouse",
     pricePerNight: 5900, priceOnRequest: false, bedrooms: 2, bathrooms: 2, guests: 4, parkingSpaces: 1,
     rating: 4.7, popularity: 73, dateAdded: "2026-07-22", featured: false,
     minNights: 3, priceNote: "Rate excludes 15% VAT",
@@ -2228,7 +2228,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-103", name: "The Camps Bay Twin Pool Residence", location: "Camps Bay", region: "Cape Town", propertyType: "Apartment",
+    id: "villa-103", name: "The Camps Bay Twin Pool Residence", location: "Camps Bay", region: "Cape Town", propertyType: "Apartment", typeCategory: "apartment",
     pricePerNight: 7000, priceOnRequest: false, bedrooms: 5, bathrooms: 4, guests: 10, parkingSpaces: 2,
     rating: 4.8, popularity: 78, dateAdded: "2026-07-22", featured: false,
     minNights: 3, priceNote: "Rate excludes 15% VAT",
@@ -2250,7 +2250,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-104", name: "The Yzerfontein Beachfront Villa", location: "Yzerfontein", region: "West Coast", propertyType: "Villa",
+    id: "villa-104", name: "The Yzerfontein Beachfront Villa", location: "Yzerfontein", region: "West Coast", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 7800, priceOnRequest: false, bedrooms: 4, bathrooms: 4, guests: 8, parkingSpaces: 2,
     rating: 4.8, popularity: 76, dateAdded: "2026-07-22", featured: false,
     minNights: 3, priceNote: "Rate excludes 15% VAT",
@@ -2272,7 +2272,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-105", name: "The Bree Street Sky Penthouse", location: "Cape Town City Centre", region: "Cape Town", propertyType: "Apartment",
+    id: "villa-105", name: "The Bree Street Sky Penthouse", location: "Cape Town City Centre", region: "Cape Town", propertyType: "Apartment", typeCategory: "penthouse",
     pricePerNight: 7000, priceOnRequest: false, bedrooms: 4, bathrooms: 4, guests: 8, parkingSpaces: 2,
     rating: 4.8, popularity: 78, dateAdded: "2026-07-22", featured: false,
     minNights: 3, priceNote: "Rate excludes 15% VAT",
@@ -2294,7 +2294,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-106", name: "The Bantry Bay Cliffside Villa", location: "Bantry Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-106", name: "The Bantry Bay Cliffside Villa", location: "Bantry Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 60000, priceOnRequest: true, bedrooms: 5, bathrooms: 5, guests: 10, parkingSpaces: 3,
     rating: 4.9, popularity: 82, dateAdded: "2026-07-22", featured: false,
     minNights: 3, priceNote: "Rate excludes 15% VAT",
@@ -2316,7 +2316,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-107", name: "The Architectural Tantra Villa", location: "Plettenberg Bay", region: "Garden Route", propertyType: "Villa",
+    id: "villa-107", name: "The Architectural Tantra Villa", location: "Plettenberg Bay", region: "Garden Route", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 80000, priceOnRequest: false, bedrooms: 5, bathrooms: 5, guests: 10, parkingSpaces: 2,
     rating: 4.9, popularity: 80, dateAdded: "2026-07-22", featured: false,
     minNights: 3, priceNote: "Rate excludes 15% VAT",
@@ -2338,7 +2338,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-108", name: "The Llandudno Boulder Residence", location: "Llandudno", region: "Cape Town", propertyType: "Villa",
+    id: "villa-108", name: "The Llandudno Boulder Residence", location: "Llandudno", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 55000, priceOnRequest: false, bedrooms: 4, bathrooms: 4, guests: 8, parkingSpaces: 4,
     rating: 4.9, popularity: 81, dateAdded: "2026-07-22", featured: false,
     minNights: 3, priceNote: "Rate excludes 15% VAT",
@@ -2360,7 +2360,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-109", name: "The Camps Bay Harmony Penthouse", location: "Camps Bay", region: "Cape Town", propertyType: "Apartment",
+    id: "villa-109", name: "The Camps Bay Harmony Penthouse", location: "Camps Bay", region: "Cape Town", propertyType: "Apartment", typeCategory: "penthouse",
     pricePerNight: 5890, priceOnRequest: false, bedrooms: 4, bathrooms: 4, guests: 8, parkingSpaces: 2,
     rating: 4.7, popularity: 74, dateAdded: "2026-07-22", featured: false,
     minNights: 3, priceNote: "Rate excludes 15% VAT",
@@ -2382,7 +2382,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-110", name: "The Clifton Summit Villa", location: "Clifton", region: "Cape Town", propertyType: "Villa",
+    id: "villa-110", name: "The Clifton Summit Villa", location: "Clifton", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 100000, priceOnRequest: false, bedrooms: 6, bathrooms: 6, guests: 12, parkingSpaces: 4,
     rating: 4.9, popularity: 85, dateAdded: "2026-07-22", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -2404,7 +2404,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-111", name: "The Camps Bay Gathering Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-111", name: "The Camps Bay Gathering Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 8000, priceOnRequest: false, bedrooms: 5, bathrooms: 5, guests: 10, parkingSpaces: 4,
     rating: 4.7, popularity: 76, dateAdded: "2026-07-22", featured: false,
     minNights: 3, priceNote: "Rate excludes 15% VAT",
@@ -2426,7 +2426,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-112", name: "The Camps Bay Boutique Suites", location: "Camps Bay", region: "Cape Town", propertyType: "Hotel",
+    id: "villa-112", name: "The Camps Bay Boutique Suites", location: "Camps Bay", region: "Cape Town", propertyType: "Hotel", typeCategory: "hotel",
     pricePerNight: 3900, priceOnRequest: false, bedrooms: 1, bathrooms: 1, guests: 2, parkingSpaces: 2,
     rating: 4.7, popularity: 79, dateAdded: "2026-07-22", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -2448,7 +2448,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-113", name: "The Green Point Panorama Villa", location: "Green Point", region: "Cape Town", propertyType: "Villa",
+    id: "villa-113", name: "The Green Point Panorama Villa", location: "Green Point", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 4000, priceOnRequest: false, bedrooms: 5, bathrooms: 3, guests: 10, parkingSpaces: 2,
     rating: 4.6, popularity: 72, dateAdded: "2026-07-22", featured: false,
     minNights: 3, priceNote: "",
@@ -2470,7 +2470,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-114", name: "The Camps Bay Belvedere Hotel", location: "Camps Bay", region: "Cape Town", propertyType: "Hotel",
+    id: "villa-114", name: "The Camps Bay Belvedere Hotel", location: "Camps Bay", region: "Cape Town", propertyType: "Hotel", typeCategory: "hotel",
     pricePerNight: 4500, priceOnRequest: false, bedrooms: 1, bathrooms: 1, guests: 2, parkingSpaces: 2,
     rating: 4.6, popularity: 68, dateAdded: "2026-07-23", featured: false,
     minNights: 3, priceNote: "Rate excludes 15% VAT",
@@ -2492,7 +2492,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-115", name: "The Constantia Hideaway Estate", location: "Constantia", region: "Cape Town", propertyType: "Villa",
+    id: "villa-115", name: "The Constantia Hideaway Estate", location: "Constantia", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 45000, priceOnRequest: true, bedrooms: 9, bathrooms: 8, guests: 18, parkingSpaces: 4,
     rating: 4.8, popularity: 74, dateAdded: "2026-07-23", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -2514,7 +2514,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-116", name: "The Camps Bay Cul-de-Sac Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-116", name: "The Camps Bay Cul-de-Sac Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 12100, priceOnRequest: false, bedrooms: 4, bathrooms: 4, guests: 8, parkingSpaces: 2,
     rating: 4.7, popularity: 70, dateAdded: "2026-07-23", featured: false,
     minNights: 3, priceNote: "Rate excludes 15% VAT",
@@ -2536,7 +2536,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-117", name: "The Clifton Rooftop Bar Apartment", location: "Clifton", region: "Cape Town", propertyType: "Apartment",
+    id: "villa-117", name: "The Clifton Rooftop Bar Apartment", location: "Clifton", region: "Cape Town", propertyType: "Apartment", typeCategory: "apartment",
     pricePerNight: 7000, priceOnRequest: false, bedrooms: 3, bathrooms: 3, guests: 6, parkingSpaces: 0,
     rating: 4.6, popularity: 66, dateAdded: "2026-07-23", featured: false,
     minNights: 3, priceNote: "Rate excludes 15% VAT — parking available on request",
@@ -2557,7 +2557,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-118", name: "The Camps Bay Vertical Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-118", name: "The Camps Bay Vertical Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 30000, priceOnRequest: false, bedrooms: 6, bathrooms: 7, guests: 12, parkingSpaces: 2,
     rating: 4.9, popularity: 83, dateAdded: "2026-07-23", featured: false,
     minNights: 3, priceNote: "Rate excludes 15% VAT",
@@ -2579,7 +2579,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-119", name: "The Mouille Point Rooftop Hotel", location: "Mouille Point", region: "Cape Town", propertyType: "Hotel",
+    id: "villa-119", name: "The Mouille Point Rooftop Hotel", location: "Mouille Point", region: "Cape Town", propertyType: "Hotel", typeCategory: "hotel",
     pricePerNight: 4800, priceOnRequest: false, bedrooms: 1, bathrooms: 1, guests: 2, parkingSpaces: 1,
     rating: 4.6, popularity: 71, dateAdded: "2026-07-23", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT — Standard Suite from R4,800 p/n, Superior King Suite with ocean view from R5,990 p/n",
@@ -2601,7 +2601,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-120", name: "The Clifton First Beach Apartment", location: "Clifton", region: "Cape Town", propertyType: "Apartment",
+    id: "villa-120", name: "The Clifton First Beach Apartment", location: "Clifton", region: "Cape Town", propertyType: "Apartment", typeCategory: "apartment",
     pricePerNight: 6000, priceOnRequest: false, bedrooms: 3, bathrooms: 2, guests: 6, parkingSpaces: 1,
     rating: 4.7, popularity: 75, dateAdded: "2026-07-23", featured: false,
     minNights: 4, priceNote: "Rate excludes 15% VAT",
@@ -2622,7 +2622,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-121", name: "The Green Point Harbour View Villa", location: "Green Point", region: "Cape Town", propertyType: "Villa",
+    id: "villa-121", name: "The Green Point Harbour View Villa", location: "Green Point", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 5000, priceOnRequest: false, bedrooms: 4, bathrooms: 4, guests: 8, parkingSpaces: 2,
     rating: 4.7, popularity: 73, dateAdded: "2026-07-24", featured: false,
     minNights: 3, priceNote: "Low-season rate from R5,000 p/n — rate varies by season",
@@ -2644,7 +2644,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-122", name: "The Camps Bay North-Facing Penthouse", location: "Camps Bay", region: "Cape Town", propertyType: "Apartment",
+    id: "villa-122", name: "The Camps Bay North-Facing Penthouse", location: "Camps Bay", region: "Cape Town", propertyType: "Apartment", typeCategory: "penthouse",
     pricePerNight: 9000, priceOnRequest: false, bedrooms: 3, bathrooms: 3, guests: 6, parkingSpaces: 2,
     rating: 4.7, popularity: 74, dateAdded: "2026-07-24", featured: false,
     minNights: 3, priceNote: "Rate excludes 15% VAT",
@@ -2665,7 +2665,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-123", name: "Element House", location: "Bakoven", region: "Cape Town", propertyType: "Villa",
+    id: "villa-123", name: "Element House", location: "Bakoven", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 8000, priceOnRequest: false, bedrooms: 4, bathrooms: 4, guests: 8, parkingSpaces: 2,
     rating: 4.7, popularity: 72, dateAdded: "2026-07-24", featured: false,
     minNights: 3, priceNote: "Rate excludes 15% VAT",
@@ -2687,7 +2687,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-124", name: "The Sea Point Ocean Deck Apartment", location: "Sea Point", region: "Cape Town", propertyType: "Apartment",
+    id: "villa-124", name: "The Sea Point Ocean Deck Apartment", location: "Sea Point", region: "Cape Town", propertyType: "Apartment", typeCategory: "apartment",
     pricePerNight: 4000, priceOnRequest: false, bedrooms: 2, bathrooms: 2, guests: 4, parkingSpaces: 2,
     rating: 4.6, popularity: 64, dateAdded: "2026-07-24", featured: false,
     minNights: 3, priceNote: "Rate excludes 15% VAT",
@@ -2708,7 +2708,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-125", name: "The Keurbooms Spaceship Villa", location: "Keurbooms", region: "Garden Route", propertyType: "Villa",
+    id: "villa-125", name: "The Keurbooms Spaceship Villa", location: "Keurbooms", region: "Garden Route", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 100000, priceOnRequest: false, bedrooms: 5, bathrooms: 5, guests: 10, parkingSpaces: 5,
     rating: 4.9, popularity: 91, dateAdded: "2026-07-25", featured: true, featuredOrder: 3,
     minNights: 3, priceNote: "Rate excludes 15% VAT",
@@ -2730,7 +2730,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-126", name: "The Camps Bay Family Retreat", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-126", name: "The Camps Bay Family Retreat", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 8990, priceOnRequest: false, bedrooms: 5, bathrooms: 5, guests: 10, parkingSpaces: 4,
     rating: 4.7, popularity: 70, dateAdded: "2026-07-26", featured: false,
     minNights: 3, priceNote: "Rate excludes 15% VAT",
@@ -2757,7 +2757,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-127", name: "The Montagu Hideaway Cabin", location: "Montagu", region: "Klein Karoo", propertyType: "Cabin",
+    id: "villa-127", name: "The Montagu Hideaway Cabin", location: "Montagu", region: "Klein Karoo", propertyType: "Cabin", typeCategory: null,
     pricePerNight: 4000, priceOnRequest: false, bedrooms: 2, bathrooms: 2, guests: 4, parkingSpaces: 2,
     rating: 4.7, popularity: 68, dateAdded: "2026-07-26", featured: false,
     minNights: 2, priceNote: "Rate excludes VAT",
@@ -2784,7 +2784,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-128", name: "The Camps Bay Avantgarde Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-128", name: "The Camps Bay Avantgarde Villa", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: null, priceOnRequest: true, bedrooms: 5, bathrooms: 5, guests: 10, parkingSpaces: 6,
     rating: 4.8, popularity: 79, dateAdded: "2026-08-03", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",
@@ -2811,7 +2811,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-129", name: "The Aven", location: "Camps Bay", region: "Cape Town", propertyType: "Villa",
+    id: "villa-129", name: "The Aven", location: "Camps Bay", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: 37500, priceOnRequest: false, bedrooms: 8, bathrooms: 8, guests: 16, parkingSpaces: 4,
     rating: 4.8, popularity: 82, dateAdded: "2026-08-05", featured: false,
     minNights: 4, priceNote: "Rate includes VAT",
@@ -2838,7 +2838,7 @@ const LISTINGS = [
     bookedDates: [], floorPlan: null, video: null
   },
   {
-    id: "villa-130", name: "The Oranjezicht Corona Villa", location: "Oranjezicht", region: "Cape Town", propertyType: "Villa",
+    id: "villa-130", name: "The Oranjezicht Corona Villa", location: "Oranjezicht", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
     pricePerNight: null, priceOnRequest: true, bedrooms: 4, bathrooms: 4, guests: 8, parkingSpaces: 3,
     rating: 4.8, popularity: 80, dateAdded: "2026-08-12", featured: false,
     minNights: 3, priceNote: "Rate excludes VAT",

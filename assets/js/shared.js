@@ -47,6 +47,13 @@ function priceQualifier(listing){
   return listing.priceOnRequest ? 'Price on Request' : 'per night';
 }
 
+/* single source of truth for "is this a Price on Request listing" —
+   reuses the existing priceOnRequest field rather than deriving POR
+   status from price values or duplicating it elsewhere */
+function isPOR(listing){
+  return listing.priceOnRequest === true;
+}
+
 /* centralized WhatsApp enquiry message — keeps wording consistent everywhere
    it's used, and gives one place to extend with dates/guests once the
    collection page's filters are wired to carry that context into the modal */
