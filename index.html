@@ -75,6 +75,7 @@
 
   <!-- HERO -->
   <header class="hero" id="hero">
+    <h1 class="sr-only">Exclusive Cape Town — Luxury Villa Rentals in Cape Town &amp; the Western Cape</h1>
     <div class="hero-media" id="heroMedia">
     <img src="assets/images/site/hero.webp" alt="Exclusive Cape Town — luxury villa at dusk overlooking the Atlantic coastline" fetchpriority="high" decoding="async">
     </div>
@@ -149,7 +150,7 @@
       </div>
       <div class="collection-head reveal-up">
         <h2 class="display underline-grow">The Most Exclusive</h2>
-        <p>Our three highest-value residences — chosen for their setting, their craft, and what it feels like to wake up inside them.</p>
+        <p>Three curated standout residences — chosen for their setting, their craft, and what it feels like to wake up inside them.</p>
       </div>
       <div class="featured-grid" id="featuredGrid"></div>
     </div>
@@ -324,7 +325,6 @@ function renderFeatured(){
     card.setAttribute('role', 'button');
     card.setAttribute('tabindex', '0');
     card.setAttribute('aria-label', `View ${listing.name} in ${listing.location}`);
-    attachCursorTilt(card);
     featuredGrid.appendChild(card);
   });
   observeReveals();
@@ -374,7 +374,6 @@ function renderPor(){
     card.setAttribute('role', 'button');
     card.setAttribute('tabindex', '0');
     card.setAttribute('aria-label', `View ${listing.name} in ${listing.location} — price on request`);
-    attachCursorTilt(card);
     porGrid.appendChild(card);
   });
   observeReveals();
@@ -414,7 +413,6 @@ function renderCollectionPreview(){
     card.setAttribute('role', 'button');
     card.setAttribute('tabindex', '0');
     card.setAttribute('aria-label', `View ${listing.name} in ${listing.location}`);
-    attachCursorTilt(card);
     previewGrid.appendChild(card);
   });
   observeReveals();

@@ -58,13 +58,13 @@
     <div class="section-inner">
       <div class="collection-head reveal-up">
         <a href="index.html" style="display:inline-block; margin-bottom:20px; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--cream-dim);">← Back to Home</a>
-        <h2 class="display underline-grow">The Collection</h2>
+        <h1 class="display underline-grow">The Collection</h1>
         <p>Every residence in the portfolio — search by location, type, size, and price.</p>
       </div>
 
       <!-- search panel -->
       <div class="search-toolbar">
-        <button class="filter-toggle" id="filterToggle" type="button">
+        <button class="filter-toggle" id="filterToggle" type="button" aria-expanded="false" aria-controls="filterPanel">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
           Filters
         </button>
@@ -84,15 +84,15 @@
       <div class="filter-panel" id="filterPanel">
         <div class="filter-row">
           <div class="f-field">
-            <label class="cap">Location</label>
+            <label class="cap" for="fLocation">Location</label>
             <select id="fLocation"><option value="">All Locations</option></select>
           </div>
           <div class="f-field">
-            <label class="cap">Property Type</label>
+            <label class="cap" for="fType">Property Type</label>
             <select id="fType"><option value="">Any Type</option></select>
           </div>
           <div class="f-field">
-            <label class="cap">Bedrooms</label>
+            <label class="cap" for="fBedrooms">Bedrooms</label>
             <select id="fBedrooms">
               <option value="0">Any</option>
               <option value="1">1+</option>
@@ -104,7 +104,7 @@
             </select>
           </div>
           <div class="f-field">
-            <label class="cap">Bathrooms</label>
+            <label class="cap" for="fBathrooms">Bathrooms</label>
             <select id="fBathrooms">
               <option value="0">Any</option>
               <option value="1">1+</option>
@@ -114,7 +114,7 @@
             </select>
           </div>
           <div class="f-field">
-            <label class="cap">Guests</label>
+            <label class="cap" for="fGuests">Guests</label>
             <select id="fGuests">
               <option value="0">Any</option>
               <option value="2">2+</option>
@@ -126,7 +126,7 @@
             </select>
           </div>
           <div class="f-field">
-            <label class="cap">Parking</label>
+            <label class="cap" for="fParking">Parking</label>
             <select id="fParking">
               <option value="0">Any</option>
               <option value="1">1+</option>
@@ -135,19 +135,19 @@
             </select>
           </div>
           <div class="f-field">
-            <label class="cap">Min Price / Night</label>
+            <label class="cap" for="fMinPrice">Min Price / Night</label>
             <input type="number" id="fMinPrice" placeholder="R 0">
           </div>
           <div class="f-field">
-            <label class="cap">Max Price / Night</label>
+            <label class="cap" for="fMaxPrice">Max Price / Night</label>
             <input type="number" id="fMaxPrice" placeholder="No limit">
           </div>
           <div class="f-field">
-            <label class="cap">Check-in</label>
+            <label class="cap" for="fCheckin">Check-in</label>
             <input type="date" id="fCheckin">
           </div>
           <div class="f-field">
-            <label class="cap">Check-out</label>
+            <label class="cap" for="fCheckout">Check-out</label>
             <input type="date" id="fCheckout">
           </div>
         </div>
@@ -255,11 +255,14 @@ const noResults = document.getElementById('noResults');
 const filterPanel = document.getElementById('filterPanel');
 const filterToggle = document.getElementById('filterToggle');
 
-/* keeps body.filters-open in sync with the panel automatically, regardless
-   of which of the several places in this file opens/closes it — used as a
-   fallback selector for browsers that don't support :has() */
+/* keeps body.filters-open and the toggle's aria-expanded in sync with the
+   panel automatically, regardless of which of the several places in this
+   file opens/closes it — filters-open is also a fallback selector for
+   browsers that don't support :has() */
 new MutationObserver(() => {
-  document.body.classList.toggle('filters-open', filterPanel.classList.contains('open'));
+  const isOpen = filterPanel.classList.contains('open');
+  document.body.classList.toggle('filters-open', isOpen);
+  filterToggle.setAttribute('aria-expanded', String(isOpen));
 }).observe(filterPanel, { attributes: true, attributeFilter: ['class'] });
 const amenityChipsWrap = document.getElementById('amenityChips');
 const sortSelect = document.getElementById('sortSelect');
@@ -283,15 +286,23 @@ let currentFilters = { location:'', type:'', bedrooms:0, bathrooms:0, guests:0, 
   });
 })();
 
+/* keeps the 'active' class and aria-pressed in sync wherever a chip's
+   state changes (click, URL restore, Clear All) */
+function setChipActive(chip, active){
+  chip.classList.toggle('active', active);
+  chip.setAttribute('aria-pressed', String(active));
+}
+
 /* build amenity chip toggles */
 AMENITY_DEFS.forEach(a => {
   const chip = document.createElement('button');
   chip.type = 'button';
   chip.className = 'amenity-chip';
+  chip.setAttribute('aria-pressed', 'false');
   chip.textContent = a.label;
   chip.dataset.key = a.key;
   chip.addEventListener('click', () => {
-    chip.classList.toggle('active');
+    setChipActive(chip, !chip.classList.contains('active'));
     if(chip.classList.contains('active')) activeAmenities.add(a.key);
     else activeAmenities.delete(a.key);
   });
@@ -380,7 +391,6 @@ function renderCard(listing, position){
   card.setAttribute('role', 'button');
   card.setAttribute('tabindex', '0');
   card.setAttribute('aria-label', `View ${listing.name} in ${listing.location}`);
-  attachCursorTilt(card);
   return card;
 }
 
@@ -504,7 +514,7 @@ function readFiltersFromURL(){
     const keys = params.get('amenities').split(',').filter(Boolean);
     keys.forEach(key => {
       const chip = amenityChipsWrap.querySelector(`.amenity-chip[data-key="${key}"]`);
-      if(chip){ chip.classList.add('active'); activeAmenities.add(key); }
+      if(chip){ setChipActive(chip, true); activeAmenities.add(key); }
     });
   }
   /* any filter present in the URL means the visitor arrived at a shared
@@ -543,7 +553,8 @@ document.getElementById('clearFilters').addEventListener('click', () => {
   document.querySelectorAll('.f-field select').forEach(s => s.selectedIndex = 0);
   document.querySelectorAll('.f-field input').forEach(i => i.value = '');
   document.getElementById('dateError').style.display = 'none';
-  amenityChipsWrap.querySelectorAll('.amenity-chip.active').forEach(c => c.classList.remove('active'));
+  document.getElementById('priceError').style.display = 'none';
+  amenityChipsWrap.querySelectorAll('.amenity-chip.active').forEach(c => setChipActive(c, false));
   activeAmenities.clear();
   currentFilters = { location:'', type:'', bedrooms:0, bathrooms:0, guests:0, parking:0, minPrice:null, maxPrice:null, checkin:'', checkout:'' };
   updateURLFromFilters();

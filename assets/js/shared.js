@@ -73,22 +73,6 @@ function trueAmenityLabels(listing, limit){
   return limit ? labels.slice(0, limit) : labels;
 }
 
-/* subtle cursor-follow tilt — desktop pointer devices only, respects reduced motion */
-const supportsHoverTilt = window.matchMedia('(hover:hover) and (pointer:fine)').matches
-  && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-function attachCursorTilt(el){
-  if(!supportsHoverTilt) return;
-  el.style.perspective = '900px';
-  el.addEventListener('mousemove', (e) => {
-    const r = el.getBoundingClientRect();
-    const px = (e.clientX - r.left) / r.width - 0.5;
-    const py = (e.clientY - r.top) / r.height - 0.5;
-    el.style.transform = `translateY(-8px) rotateX(${(-py * 4).toFixed(2)}deg) rotateY(${(px * 4).toFixed(2)}deg)`;
-  });
-  el.addEventListener('mouseleave', () => { el.style.transform = ''; });
-}
-
 /* =====================================================================
    SCROLL REVEAL OBSERVER
    ===================================================================== */
@@ -182,9 +166,9 @@ function renderGalleryStage(){
   if(hasImages){
     inner += `<img id="stageImg" src="${listing.images[galleryState.index]}" alt="${listing.name} — photo ${galleryState.index+1} of ${listing.images.length}" decoding="async">`;
     if(listing.images.length > 1){
-      inner += `<div class="gallery-arrow prev" id="galPrev">‹</div><div class="gallery-arrow next" id="galNext">›</div>`;
+      inner += `<button type="button" class="gallery-arrow prev" id="galPrev" aria-label="Previous photo">‹</button><button type="button" class="gallery-arrow next" id="galNext" aria-label="Next photo">›</button>`;
     }
-    inner += `<div class="gallery-expand" id="galExpand">⤢ Fullscreen</div>`;
+    inner += `<button type="button" class="gallery-expand" id="galExpand" aria-label="View fullscreen">⤢ Fullscreen</button>`;
   } else {
     inner += `<div class="ph"></div><div class="gallery-placeholder">Photography for this residence is on its way.</div>`;
   }
@@ -193,13 +177,13 @@ function renderGalleryStage(){
 
   if(hasImages){
     const img = stage.querySelector('#stageImg');
-    if(img) img.addEventListener('click', () => openLightbox(listing.images[galleryState.index]));
+    if(img) img.addEventListener('click', () => openLightbox(listing.images[galleryState.index], `${listing.name} — photo ${galleryState.index+1} of ${listing.images.length}`));
     const prev = stage.querySelector('#galPrev');
     const next = stage.querySelector('#galNext');
     if(prev) prev.addEventListener('click', () => { galleryState.index = (galleryState.index - 1 + listing.images.length) % listing.images.length; renderGalleryStage(); });
     if(next) next.addEventListener('click', () => { galleryState.index = (galleryState.index + 1) % listing.images.length; renderGalleryStage(); });
     const exp = stage.querySelector('#galExpand');
-    if(exp) exp.addEventListener('click', () => openLightbox(listing.images[galleryState.index]));
+    if(exp) exp.addEventListener('click', () => openLightbox(listing.images[galleryState.index], `${listing.name} — photo ${galleryState.index+1} of ${listing.images.length}`));
 
     /* swipe support */
     let touchStartX = null;
@@ -222,7 +206,7 @@ function renderGalleryStage(){
     if(hasImages && listing.images.length > 1){
       thumbs.style.display = 'flex';
       thumbs.innerHTML = listing.images.map((src, i) =>
-        `<div class="gallery-thumb ${i === galleryState.index ? 'active' : ''}" data-i="${i}"><img src="${src}" alt="${listing.name} thumbnail ${i+1}" loading="lazy" decoding="async"></div>`
+        `<button type="button" class="gallery-thumb ${i === galleryState.index ? 'active' : ''}" data-i="${i}" aria-label="View photo ${i+1} of ${listing.images.length}"><img src="${src}" alt="" loading="lazy" decoding="async"></button>`
       ).join('');
       thumbs.querySelectorAll('.gallery-thumb').forEach(t => {
         t.addEventListener('click', () => { galleryState.index = Number(t.dataset.i); renderGalleryStage(); });
@@ -250,14 +234,16 @@ function lightboxNav(dir){
   if(!listing || !listing.images || listing.images.length < 2) return;
   galleryState.index = (galleryState.index + dir + listing.images.length) % listing.images.length;
   lightboxImg.src = listing.images[galleryState.index];
+  lightboxImg.alt = `${listing.name} — photo ${galleryState.index+1} of ${listing.images.length}`;
   renderGalleryStage();
 }
 
 let lastFocusedBeforeLightbox = null;
 
-function openLightbox(src){
+function openLightbox(src, alt){
   lastFocusedBeforeLightbox = document.activeElement;
   lightboxImg.src = src;
+  lightboxImg.alt = alt || '';
   lightbox.classList.add('open');
   updateLightboxArrows();
   lightboxClose.focus();
@@ -268,9 +254,24 @@ function closeLightbox(){
   if(lastFocusedBeforeLightbox && lastFocusedBeforeLightbox.focus) lastFocusedBeforeLightbox.focus();
 }
 
-function openListing(id){
+/* villa=id in the URL, preserving any other existing query params (e.g.
+   collection.html's filters) so opening a listing never clobbers them */
+function buildVillaURL(id){
+  const params = new URLSearchParams(window.location.search);
+  params.set('villa', id);
+  return window.location.pathname + '?' + params.toString();
+}
+function buildURLWithoutVilla(){
+  const params = new URLSearchParams(window.location.search);
+  params.delete('villa');
+  const qs = params.toString();
+  return window.location.pathname + (qs ? '?' + qs : '');
+}
+
+function openListing(id, fromHistory){
   const listing = LISTINGS.find(l => l.id === id);
-  if(!listing) return;
+  if(!listing) return; // invalid/unknown id — fail safely, no-op
+
   galleryState = { listing, index: 0, tab: 'photos' };
 
   modal.innerHTML = `
@@ -335,14 +336,53 @@ function openListing(id){
   modalOverlay.classList.add('open');
   document.body.style.overflow = 'hidden';
   modal.querySelector('#modalClose').focus();
+
+  /* shareable URL — skipped when this call is the result of Back/Forward
+     (the browser has already changed the URL in that case) */
+  if(!fromHistory){
+    history.pushState({villaModal: id}, '', buildVillaURL(id));
+  }
 }
 
 function closeModal(){
   modalOverlay.classList.remove('open');
   document.body.style.overflow = '';
   if(lastFocusedElement && lastFocusedElement.focus) lastFocusedElement.focus();
+
+  /* if we pushed the history entry that's opening this modal, Back should
+     naturally land on the pre-modal state — closing via the X/overlay
+     click should behave the same way rather than adding a new entry.
+     If the modal was instead opened by loading a ?villa= URL directly,
+     there's no such entry to go back to, so just clean the URL in place. */
+  if(history.state && history.state.villaModal){
+    history.back();
+  } else if(new URLSearchParams(window.location.search).has('villa')){
+    history.replaceState(null, '', buildURLWithoutVilla());
+  }
 }
 let lastFocusedElement = null;
+
+window.addEventListener('popstate', (e) => {
+  const id = new URLSearchParams(window.location.search).get('villa');
+  if(id){
+    if(!modalOverlay.classList.contains('open') || (galleryState.listing && galleryState.listing.id !== id)){
+      openListing(id, true);
+    }
+  } else if(modalOverlay.classList.contains('open')){
+    modalOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+    if(lastFocusedElement && lastFocusedElement.focus) lastFocusedElement.focus();
+  }
+});
+
+/* auto-open on direct load of a shareable villa URL — invalid/unknown
+   ids are ignored safely by openListing's own existence check above */
+(function(){
+  const id = new URLSearchParams(window.location.search).get('villa');
+  if(id) openListing(id, true);
+})();
+
+
 
 function getFocusableElements(container){
   return Array.from(container.querySelectorAll(
@@ -367,7 +407,10 @@ modalOverlay.addEventListener('click', (e) => {
   if(e.target === modalOverlay) closeModal();
 });
 document.addEventListener('keydown', (e) => {
-  if(e.key === 'Escape'){ closeModal(); closeLightbox(); }
+  if(e.key === 'Escape'){
+    if(lightbox.classList.contains('open')) closeLightbox();
+    else if(modalOverlay.classList.contains('open')) closeModal();
+  }
   if(lightbox.classList.contains('open')){
     if(e.key === 'ArrowLeft') lightboxNav(-1);
     else if(e.key === 'ArrowRight') lightboxNav(1);
