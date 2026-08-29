@@ -2862,5 +2862,32 @@ const LISTINGS = [
       "assets/images/villa-130/14.webp"
     ],
     bookedDates: [], floorPlan: null, video: null
+  },
+  {
+    id: "villa-131", name: "The Fresnaye Executive Villa", location: "Fresnaye", region: "Cape Town", propertyType: "Villa", typeCategory: "villa",
+    pricePerNight: null, priceOnRequest: true, bedrooms: 5, bathrooms: 5, guests: 10, parkingSpaces: 5,
+    rating: 4.8, popularity: 78, dateAdded: "2026-08-29", featured: false,
+    minNights: 3, priceNote: "Rate excludes VAT",
+    description: "Set in Fresnaye, one of Cape Town's most sought-after addresses, this sophisticated executive home is built for lavish entertaining as much as relaxed family time. Enormous glass doors slide fully away to dissolve the line between indoors and out, opening onto an expansive pool deck with a built-in braai and a concealed bar. A dazzling glass-walled entrance foyer draws guests into light-filled living, dining and entertainment spaces finished in soft, soothing summer tones. The heated infinity pool is joined by a sunken martini pool lounge and sun loungers, while a glass elevator connects the home's levels. Inside, an indoor bar area, a main lounge with plush seating, and 13-seater indoor dining sit alongside a fully equipped, hotel-style double kitchen with scullery. Underfloor heating, ducted air conditioning and a comprehensive home automation system run throughout, with secure parking for five cars completing the estate.",
+    shortDescription: "A 5-bedroom Fresnaye executive villa with a heated infinity pool, sunken martini pool lounge, glass elevator, and a hotel-style double kitchen.",
+    amenities: {beachfront:false, oceanView:true, mountainView:true, infinityPool:true, pool:true, gym:false, sauna:false, spa:false, cinema:false, wineCellar:false, office:true, petFriendly:false, familyFriendly:false, wheelchairAccessible:false, smartHome:true, gatedEstate:false, security:false, housekeeping:false, privateChef:false, butler:false, concierge:false, airportTransfers:false, eventFriendly:false, backupPower:false, wifi:false},
+    images: [
+      "assets/images/villa-131/01.webp",
+      "assets/images/villa-131/02.webp",
+      "assets/images/villa-131/03.webp",
+      "assets/images/villa-131/04.webp",
+      "assets/images/villa-131/05.webp",
+      "assets/images/villa-131/06.webp",
+      "assets/images/villa-131/07.webp",
+      "assets/images/villa-131/08.webp",
+      "assets/images/villa-131/09.webp",
+      "assets/images/villa-131/10.webp",
+      "assets/images/villa-131/11.webp",
+      "assets/images/villa-131/12.webp",
+      "assets/images/villa-131/13.webp",
+      "assets/images/villa-131/14.webp",
+      "assets/images/villa-131/15.webp"
+    ],
+    bookedDates: [], floorPlan: null, video: null
   }
 ];
