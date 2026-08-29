@@ -229,6 +229,47 @@ const lightboxPrev = document.getElementById('lightboxPrev');
 const lightboxNext = document.getElementById('lightboxNext');
 const lightboxClose = document.getElementById('lightboxClose');
 
+/* Thumbnail strip only scrolls natively via trackpad two-finger swipe or
+   Shift+wheel — neither is discoverable, so a plain mouse user can't
+   reach thumbnails once the strip overflows (e.g. any listing with more
+   photos than fit the visible width). Adds wheel-to-horizontal scrolling
+   and click-and-drag scrolling, with click-vs-drag detection so a
+   genuine click still selects the thumbnail under the pointer. */
+function enableThumbDragScroll(el){
+  if(!el || el._dragScrollBound) return;
+  el._dragScrollBound = true;
+
+  el.addEventListener('wheel', (e) => {
+    if(Math.abs(e.deltaY) > Math.abs(e.deltaX)){
+      el.scrollLeft += e.deltaY;
+      e.preventDefault();
+    }
+  }, { passive: false });
+
+  let drag = null;
+  el.addEventListener('pointerdown', (e) => {
+    drag = { startX: e.clientX, startScroll: el.scrollLeft, moved: false, pointerId: e.pointerId };
+  });
+  el.addEventListener('pointermove', (e) => {
+    if(!drag || drag.pointerId !== e.pointerId) return;
+    const dx = e.clientX - drag.startX;
+    if(Math.abs(dx) > 4) drag.moved = true;
+    if(drag.moved) el.scrollLeft = drag.startScroll - dx;
+  });
+  const endDrag = (e) => {
+    if(!drag) return;
+    if(drag.moved && drag.pointerId === e.pointerId){
+      /* a real drag happened — swallow the click so it doesn't also
+         select whichever thumbnail happens to be under the pointer */
+      const swallow = (ev) => { ev.stopPropagation(); ev.preventDefault(); };
+      el.addEventListener('click', swallow, { capture: true, once: true });
+    }
+    drag = null;
+  };
+  el.addEventListener('pointerup', endDrag);
+  el.addEventListener('pointerleave', endDrag);
+}
+
 function updateLightboxArrows(){
   const listing = galleryState.listing;
   const hasMultiple = !!(listing && listing.images && listing.images.length > 1);
@@ -325,6 +366,7 @@ function openListing(id, fromHistory){
   `;
 
   renderGalleryStage();
+  enableThumbDragScroll(document.getElementById('galleryThumbs'));
 
   buildCalendar(document.getElementById('modalCal'), listing.bookedDates || []);
 
