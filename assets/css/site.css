@@ -1070,3 +1070,29 @@
   /* ---------- COLLECTION PAGE HEAD (collection.html — no hero above it) ---------- */
   .page-head{padding-top:170px;}
   @media (max-width:640px){ .page-head{padding-top:120px;} }
+
+  /* ---------- FOOTER LEGAL LINKS (privacy.html / terms.html) ---------- */
+  .footer-legal{display:flex; align-items:center; gap:8px;}
+  .footer-legal a:hover{color:var(--gold);}
+  .footer-legal span{color:var(--stone);}
+
+  /* ---------- LEGAL / POLICY PAGES (privacy.html, terms.html) ---------- */
+  .legal-content{max-width:760px; padding-bottom:40px;}
+  .legal-content .updated{
+    display:block; font-family:'Jost',sans-serif; font-size:11px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--stone); margin-bottom:48px;
+  }
+  .legal-content h2{
+    font-family:'Fraunces', serif; font-weight:400; font-size:clamp(19px,2.2vw,24px);
+    letter-spacing:.01em; margin:48px 0 14px; color:var(--cream);
+  }
+  .legal-content h2:first-of-type{margin-top:0;}
+  .legal-content p{font-size:14px; line-height:1.9; color:var(--cream-dim); font-weight:300; margin-bottom:16px;}
+  .legal-content ul{margin:0 0 16px 20px; padding:0;}
+  .legal-content li{font-size:14px; line-height:1.9; color:var(--cream-dim); font-weight:300; margin-bottom:8px;}
+  .legal-content a{color:var(--gold); text-decoration:underline; text-underline-offset:3px;}
+  .legal-content a:hover{color:var(--cream);}
+  @media (max-width:640px){
+    .legal-content h2{margin:36px 0 12px;}
+    .legal-content p, .legal-content li{font-size:13.5px;}
+  }
