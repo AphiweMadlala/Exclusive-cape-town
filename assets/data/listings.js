@@ -2889,5 +2889,32 @@ const LISTINGS = [
       "assets/images/villa-131/15.webp"
     ],
     bookedDates: [], floorPlan: null, video: null
+  },
+  {
+    id: "villa-132", name: "The St Helena Bay Beachfront Villa", location: "St Helena Bay", region: "West Coast", propertyType: "Villa", typeCategory: "villa",
+    pricePerNight: 6000, priceOnRequest: false, bedrooms: 4, bathrooms: 4, guests: 8, parkingSpaces: 3,
+    rating: 4.8, popularity: 66, dateAdded: "2026-08-29", featured: false,
+    minNights: 3, priceNote: "Rate excludes VAT",
+    description: "Situated along the picturesque West Coast in St Helena Bay — a tranquil coastal community known for its scenic beauty and peaceful surroundings — this exquisite beachfront villa offers a serene getaway with breathtaking views. The estate sits directly above the dunes, with a private boardwalk and timber stair leading down onto the sand. Two spacious lounges provide comfortable spaces to relax, with large windows framing stunning ocean and mountain views, both fitted with Smart TVs and WiFi. Glass doors fold fully away onto a terrace where a lap pool, jacuzzi and sun loungers look straight out over the water toward the lighthouse, alongside an alfresco dining area with a built-in braai. Inside, an open-plan kitchen with a five-seater breakfast counter and Nespresso machine serves the dining and living spaces, warmed by an indoor fireplace on cooler evenings. A games room with table tennis, foosball and darts keeps groups entertained, while underfloor heating, a laundry room, a 10kW photovoltaic system with home automation and a three-car garage round out a villa built for easy, unhurried coastal living.",
+    shortDescription: "A four-bedroom beachfront villa in St Helena Bay, with a lap pool, jacuzzi and games room, set directly above the dunes with its own boardwalk to the sand.",
+    amenities: {beachfront:true, oceanView:true, mountainView:true, infinityPool:false, pool:true, gym:false, sauna:false, spa:false, cinema:false, wineCellar:false, office:false, petFriendly:false, familyFriendly:true, wheelchairAccessible:false, smartHome:true, gatedEstate:false, security:false, housekeeping:false, privateChef:false, butler:false, concierge:false, airportTransfers:false, eventFriendly:false, backupPower:true, wifi:true},
+    images: [
+      "assets/images/villa-132/01.webp",
+      "assets/images/villa-132/02.webp",
+      "assets/images/villa-132/03.webp",
+      "assets/images/villa-132/04.webp",
+      "assets/images/villa-132/05.webp",
+      "assets/images/villa-132/06.webp",
+      "assets/images/villa-132/07.webp",
+      "assets/images/villa-132/08.webp",
+      "assets/images/villa-132/09.webp",
+      "assets/images/villa-132/10.webp",
+      "assets/images/villa-132/11.webp",
+      "assets/images/villa-132/12.webp",
+      "assets/images/villa-132/13.webp",
+      "assets/images/villa-132/14.webp",
+      "assets/images/villa-132/15.webp"
+    ],
+    bookedDates: [], floorPlan: null, video: null
   }
 ];
